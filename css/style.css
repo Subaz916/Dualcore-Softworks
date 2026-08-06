@@ -1383,8 +1383,17 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 6
   color: #d4d4d8;
   cursor: default;
   transition: border-color .35s, box-shadow .35s, color .35s, transform .35s;
-  white-space: nowrap;
-  padding: 0 10px;
+  padding: 0;
+}
+.orb svg {
+  width: 32px; height: 32px;
+}
+.orb .orb-next {
+  width: 34px; height: 34px;
+  padding: 5px;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 50%;
 }
 .orb:hover {
   border-color: var(--primary);
