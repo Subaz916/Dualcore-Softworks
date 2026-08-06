@@ -50,9 +50,10 @@
 
   .hex-wrap { grid-template-columns: repeat(3, 1fr); grid-auto-rows: 104px; }
 
-  .team-stack { flex-wrap: wrap; gap: 20px; padding: 20px; }
+  .team-stack { flex-wrap: wrap; gap: 24px; padding: 20px; }
   .tm-card, .tm-card:nth-child(1), .tm-card:nth-child(2) {
     transform: none;
+    width: 300px;
   }
 
   .award-wall { grid-template-columns: repeat(2, 1fr); }
@@ -145,6 +146,10 @@
   .award-wall { grid-template-columns: 1fr 1fr; gap: 14px; }
   .award-badge { padding: 26px 14px; }
   .ab-ico { font-size: 27px; }
+
+  .team-stack { gap: 20px; }
+  .tm-card, .tm-card:nth-child(1), .tm-card:nth-child(2) { width: min(100%, 320px); }
+  .tm-portrait { aspect-ratio: 4 / 3.6; }
 
   .faq-q { padding: 20px 22px; font-size: 15px; }
 

@@ -2052,17 +2052,17 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 6
   display: flex;
   justify-content: center;
   align-items: stretch;
-  gap: 28px;
+  gap: 32px;
   padding: 60px 40px 40px;
 }
 .tm-card {
   position: relative;
-  width: 240px;
+  width: 340px;
   border-radius: var(--radius);
   background: linear-gradient(170deg, rgba(24, 24, 29, .85), rgba(17, 17, 20, .6));
   border: 1px solid var(--border);
   backdrop-filter: blur(12px);
-  padding: 20px;
+  padding: 22px;
   transition: transform .55s var(--ease), z-index .55s, box-shadow .55s, border-color .55s;
   will-change: transform;
   perspective: 1400px;
@@ -2105,20 +2105,47 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 6
   justify-content: center;
   align-items: center;
   text-align: center;
-  gap: 10px;
-  padding: 24px 20px;
+  gap: 12px;
+  padding: 26px 22px;
   transform: rotateY(180deg);
-  background: linear-gradient(170deg, rgba(24, 24, 29, .95), rgba(17, 17, 20, .8));
+  background: linear-gradient(170deg, rgba(24, 24, 29, .96), rgba(17, 17, 20, .82));
 }
-.tm-back-name { font-family: var(--font-head); font-size: 18px; display: block; }
-.tm-back-role { color: var(--highlight); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
-.tm-bio { font-size: 12.5px; color: var(--muted); line-height: 1.55; margin: 2px 0 4px; }
-.tm-back .tm-skills { opacity: 1; transform: none; justify-content: center; }
+.tm-back-name { font-family: var(--font-head); font-size: 21px; display: block; }
+.tm-back-role { color: var(--highlight); font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; }
+.tm-bio { font-size: 13px; color: var(--muted); line-height: 1.6; margin: 0 0 4px; }
+.tm-back-block { display: flex; flex-direction: column; gap: 7px; width: 100%; }
+.tm-back-label {
+  font-size: 10.5px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  opacity: .75;
+}
+.tm-tags { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+.tm-tags i {
+  font-style: normal;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: #c6c6d0;
+  border: 1px solid var(--border-2);
+  border-radius: 99px;
+  padding: 5px 11px;
+  background: rgba(255, 255, 255, .04);
+}
+.tm-mail {
+  font-size: 12.5px;
+  color: var(--highlight);
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(13, 115, 119, .45);
+  padding-bottom: 2px;
+  transition: color .3s;
+}
+.tm-mail:hover { color: #fff; }
 .tm-back .tm-exp { opacity: 1; }
 .tm-portrait {
   position: relative;
-  aspect-ratio: 4 / 4.6;
-  border-radius: 14px;
+  aspect-ratio: 4 / 4.2;
+  border-radius: 16px;
   overflow: hidden;
   display: grid;
   place-items: center;
@@ -2131,7 +2158,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 6
 .p4 { background: linear-gradient(160deg, #b45309, #241205 60%); }
 .tm-initials, .tm-initial {
   font-family: var(--font-head);
-  font-size: clamp(2rem, 3vw, 2.8rem);
+  font-size: clamp(2.6rem, 3.4vw, 3.4rem);
   font-weight: 700;
   letter-spacing: -.02em;
   color: rgba(255, 255, 255, .92);
@@ -2144,9 +2171,9 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 6
   background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, .14), transparent 60%);
   animation: halo-rotate 9s linear infinite;
 }
-.tm-info { padding: 16px 4px 6px; }
-.tm-info b { font-family: var(--font-head); font-size: 17px; display: block; }
-.tm-info > span { color: var(--muted); font-size: 12.5px; display: block; margin-top: 2px; }
+.tm-info { padding: 18px 4px 8px; }
+.tm-info b { font-family: var(--font-head); font-size: 21px; display: block; }
+.tm-info > span { color: var(--muted); font-size: 13.5px; display: block; margin-top: 4px; }
 .tm-skills {
   display: flex;
   flex-wrap: wrap;
@@ -2166,7 +2193,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 6
   padding: 4px 10px;
   background: rgba(255, 255, 255, .03);
 }
-.tm-exp { display: block; font-size: 11.5px; color: var(--highlight); margin-top: 12px; opacity: 0; transition: opacity .5s var(--ease) .05s; }
+.tm-exp { display: block; font-size: 12px; color: var(--highlight); margin-top: 10px; opacity: 0; transition: opacity .5s var(--ease) .05s; }
 .tm-card:hover .tm-exp { opacity: 1; }
 
 /* ---------- 23. AWARDS ---------- */
