@@ -280,9 +280,12 @@
     if (!sb) return;
     const { data } = await sb.auth.getSession();
     if (!data.session) return;
-    await sb.rpc('promote_admin');
-    const ok = await isAdmin(sb);
-    if (ok) enterPanel(sb);
-    else await sb.auth.signOut();
+    const email = String(data.session.user.email || '').toLowerCase();
+    if (email === ADMIN_EMAIL.toLowerCase()) {
+      try { await sb.rpc('promote_admin'); } catch (e) { console.error('promote_admin:', e); }
+      const ok = await isAdmin(sb);
+      if (ok) return enterPanel(sb);
+      showErr('Admin access is not set up yet. Run the SQL migration (db/migration-admin.sql) in the Supabase SQL Editor, then sign out and back in.');
+    }
   })();
 })();
