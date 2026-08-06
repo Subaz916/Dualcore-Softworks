@@ -23,12 +23,6 @@
   let contactsCache = [];
   let projectsCache = [];
 
-  async function isAdmin(sb) {
-    const { data: sessionData } = await sb.auth.getSession();
-    if (!sessionData.session) return false;
-    return String(sessionData.session.user.email || '').toLowerCase() === ADMIN_EMAIL.toLowerCase();
-  }
-
   /* ---------- Panel ---------- */
   function enterPanel(sb) {
     panel.style.display = '';
@@ -61,16 +55,16 @@
     if (pRes.error) console.error('projects:', pRes.error);
     contactsCache = cRes.data || [];
     projectsCache = pRes.data || [];
-    renderAll(sb);
+    renderAll(sb, cRes.error || pRes.error);
   }
 
-  function renderAll(sb) {
+  function renderAll(sb, loadErr) {
     qs('#statLeads').textContent = contactsCache.length;
     qs('#statUnread').textContent = contactsCache.filter((c) => !c.read).length;
     qs('#statProjects').textContent = projectsCache.length;
     qs('#cntContacts').textContent = contactsCache.length;
     qs('#cntProjects').textContent = projectsCache.length;
-    statusEl.textContent = '';
+    statusEl.textContent = loadErr ? '⚠ ' + (loadErr.message || 'Could not load data from Supabase.') : '';
     renderCurrentTab(sb);
   }
 
@@ -217,23 +211,55 @@
   if (yr) yr.textContent = new Date().getFullYear();
 
   /* ---------- Auto-login (no login form anymore) ---------- */
+  function showMsg(html) {
+    view.innerHTML = html;
+    statusEl.textContent = '';
+  }
+
   (async () => {
     const sb = window.supabase;
+    panel.style.display = 'block';
+
     if (!sb) {
-      window.location.href = 'start-project.html';
+      showMsg(
+        '<p class="adm-empty">The Supabase client failed to load — check your internet connection, then try again.' +
+        '<br><a class="adm-link" href="admin-pannel-pass.html">Reload page</a></p>'
+      );
       return;
     }
-    const { data } = await sb.auth.getSession();
-    if (!data.session) {
-      window.location.href = 'start-project.html';
+
+    let session;
+    try {
+      const { data } = await sb.auth.getSession();
+      session = data.session;
+    } catch (e) {
+      showMsg('<p class="adm-empty">Could not check your session: ' + esc((e && e.message) || e) + '</p>');
       return;
     }
-    const email = String(data.session.user.email || '').toLowerCase();
-    if (email === ADMIN_EMAIL.toLowerCase()) {
-      try { await sb.rpc('promote_admin'); } catch (e) { console.error('promote_admin:', e); }
-      const ok = await isAdmin(sb);
-      if (ok) return enterPanel(sb);
+
+    if (!session) {
+      showMsg(
+        '<p class="adm-empty">You are not signed in on the admin account — sign in below to open the panel.' +
+        '<br><button type="button" class="btn btn-primary" id="admGoLogin">Sign in / Create account</button></p>'
+      );
+      qs('#admGoLogin').addEventListener('click', () => { window.location.href = 'start-project.html'; });
+      return;
     }
-    window.location.href = 'start-project.html';
+
+    const email = String(session.user.email || '').toLowerCase();
+    if (email !== ADMIN_EMAIL.toLowerCase()) {
+      showMsg(
+        '<p class="adm-empty">Signed in as <b>' + esc(session.user.email) + '</b> — the admin panel is only for <b>' + ADMIN_EMAIL + '</b>.</p>' +
+        '<p class="adm-empty" style="padding:0"><button type="button" class="btn btn-ghost" id="admSwitch">Sign out &amp; switch account</button></p>'
+      );
+      qs('#admSwitch').addEventListener('click', async () => {
+        await sb.auth.signOut();
+        window.location.href = 'start-project.html';
+      });
+      return;
+    }
+
+    try { await sb.rpc('promote_admin'); } catch (e) { console.error('promote_admin:', e); }
+    enterPanel(sb);
   })();
 })();
