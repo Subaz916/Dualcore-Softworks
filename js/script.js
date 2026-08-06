@@ -342,7 +342,6 @@
   const descMap = {
     landing: ['Landing Page', 'Conversion-first marketing sites with cinematic motion and premium typography.'],
     dashboard: ['Dashboard', 'Realtime analytics interfaces with dense, elegant data visualization.'],
-    mobile: ['Mobile App', 'Native-feel apps with fluid gestures and buttery 60fps navigation.'],
     crm: ['CRM', 'Pipeline-driven teams with automation wired into every workflow.'],
     saas: ['SaaS Product', 'Multi-tenant platforms with billing, teams and scalable architecture.'],
     portfolio: ['Portfolio', 'Studio-grade showcases that make brands unforgettable.'],
