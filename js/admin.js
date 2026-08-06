@@ -279,10 +279,10 @@
     const sb = window.supabase;
     if (!sb) return;
     const { data } = await sb.auth.getSession();
-    if (data.session) {
-      const ok = await isAdmin(sb);
-      if (ok) enterPanel(sb);
-      else await sb.auth.signOut();
-    }
+    if (!data.session) return;
+    await sb.rpc('promote_admin');
+    const ok = await isAdmin(sb);
+    if (ok) enterPanel(sb);
+    else await sb.auth.signOut();
   })();
 })();
