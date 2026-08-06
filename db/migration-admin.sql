@@ -33,6 +33,11 @@ $$;
 
 grant execute on function public.promote_admin() to authenticated;
 
+-- Admin users can read their own row (used by the admin panel check)
+create policy "Admin read self"
+  on public.admins for select
+  using (auth.uid() = id);
+
 -- ---------- 3. Admin policies: CONTACTS ----------
 drop policy if exists "Admin read contacts" on public.contacts;
 create policy "Admin read contacts"

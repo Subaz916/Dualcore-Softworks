@@ -26,11 +26,7 @@
   async function isAdmin(sb) {
     const { data: sessionData } = await sb.auth.getSession();
     if (!sessionData.session) return false;
-    const { data } = await sb.from('admins')
-      .select('id')
-      .eq('id', sessionData.session.user.id)
-      .maybeSingle();
-    return !!data;
+    return String(sessionData.session.user.email || '').toLowerCase() === ADMIN_EMAIL.toLowerCase();
   }
 
   /* ---------- Panel ---------- */
