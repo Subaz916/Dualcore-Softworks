@@ -1,6 +1,6 @@
 /* ============================================================
    DUALCORE SOFTWORKS — admin.js
-   Admin panel: login, inbox, project status management
+   Admin panel: auto-login, inbox, project status management
    ============================================================ */
 (function () {
   'use strict';
@@ -11,7 +11,6 @@
   const STATUS_FLOW = ['Received', 'Reviewing', 'Proposal', 'Development', 'Delivered'];
 
   const qs = (s, c) => (c || document).querySelector(s);
-  const loginSection = qs('#admLoginSection');
   const panel = qs('#admPanel');
   const chip = qs('#admChip');
   const statusEl = qs('#admStatus');
@@ -23,57 +22,6 @@
 
   let contactsCache = [];
   let projectsCache = [];
-
-  const showErr = (msg) => {
-    const el = qs('#admError');
-    if (!el) return;
-    el.textContent = msg;
-    el.classList.add('show');
-  };
-
-  /* ---------- Login ---------- */
-  const loginForm = qs('#admLoginForm');
-  if (loginForm) {
-    loginForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const email = qs('#admEmail').value.trim();
-      const pass = qs('#admPass').value;
-      if (!email || !pass) return showErr('Enter your email and password.');
-      const btn = qs('#admLoginBtn');
-      btn.disabled = true;
-      btn.textContent = 'Checking…';
-
-      const sb = window.supabase;
-      if (!sb) {
-        showErr('Database not connected.');
-        btn.disabled = false;
-        btn.textContent = 'Unlock Panel →';
-        return;
-      }
-
-      const { error } = await sb.auth.signInWithPassword({ email, pass });
-      if (error) {
-        showErr(error.message === 'Invalid login credentials'
-          ? 'Wrong email or password.'
-          : error.message);
-        btn.disabled = false;
-        btn.textContent = 'Unlock Panel →';
-        return;
-      }
-
-      await sb.rpc('promote_admin');
-      const ok = await isAdmin(sb);
-      if (!ok) {
-        await sb.auth.signOut();
-        showErr('This account is not an administrator.');
-        btn.disabled = false;
-        btn.textContent = 'Unlock Panel →';
-        return;
-      }
-      btn.textContent = 'Unlocked ✓';
-      enterPanel(sb);
-    });
-  }
 
   async function isAdmin(sb) {
     const { data: sessionData } = await sb.auth.getSession();
@@ -87,11 +35,9 @@
 
   /* ---------- Panel ---------- */
   function enterPanel(sb) {
-    loginSection.style.display = 'none';
     panel.style.display = '';
     sb.auth.getSession().then(({ data }) => {
       const email = data.session.user.email;
-      chip.style.display = '';
       chip.textContent = '◆ ' + email;
       chip.className = 'au-chip';
       chip.style.display = 'inline-flex';
@@ -274,18 +220,24 @@
   const yr = qs('#year');
   if (yr) yr.textContent = new Date().getFullYear();
 
-  /* ---------- Auto-login on refresh ---------- */
+  /* ---------- Auto-login (no login form anymore) ---------- */
   (async () => {
     const sb = window.supabase;
-    if (!sb) return;
+    if (!sb) {
+      window.location.href = 'start-project.html';
+      return;
+    }
     const { data } = await sb.auth.getSession();
-    if (!data.session) return;
+    if (!data.session) {
+      window.location.href = 'start-project.html';
+      return;
+    }
     const email = String(data.session.user.email || '').toLowerCase();
     if (email === ADMIN_EMAIL.toLowerCase()) {
       try { await sb.rpc('promote_admin'); } catch (e) { console.error('promote_admin:', e); }
       const ok = await isAdmin(sb);
       if (ok) return enterPanel(sb);
-      showErr('Admin access is not set up yet. Run the SQL migration (db/migration-admin.sql) in the Supabase SQL Editor, then sign out and back in.');
     }
+    window.location.href = 'start-project.html';
   })();
 })();
