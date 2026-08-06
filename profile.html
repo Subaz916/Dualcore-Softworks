@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Track your Dualcore Softworks project — sign in to see your submitted briefs and live progress.">
+  <meta name="description" content="Your Dualcore Softworks account — name, email, and project shortcuts.">
   <meta name="theme-color" content="#09090B">
-  <title>My Projects — Dualcore Softworks</title>
+  <title>My Profile — Dualcore Softworks</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%233B82F6'/%3E%3Cstop offset='1' stop-color='%238B5CF6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='%2309090B'/%3E%3Cpath d='M16 44V20l16 24V20' stroke='url(%23g)' stroke-width='6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,30 +35,32 @@
     </a>
     <div class="w-topbar-right">
       <span class="au-chip" id="authUserChip"></span>
-      <a href="profile.html" class="au-chip au-chip-link" id="authProfileLink" aria-label="My profile" style="display:none"><span class="au-ico">U</span></a>
-      <a href="start-project.html" class="btn btn-glass btn-sm" id="startProjectBtn">Start a Project</a>
+      <a href="dashboard.html" class="btn btn-glass btn-sm" id="myProjectsLink" style="display:none">My Projects</a>
       <button type="button" class="btn btn-ghost btn-sm" id="authLogout">Log out</button>
       <a href="index.html" class="btn btn-glass btn-sm">← Back to site</a>
     </div>
   </header>
 
-  <!-- Dashboard -->
-  <section class="dash-section" id="dashboard">
+  <!-- Profile -->
+  <section class="profile-section" id="profile">
     <div class="container">
-      <div class="dash-head">
-        <div>
-          <span class="eyebrow">Client Portal</span>
-          <h1>My <span class="grad-text">Projects</span></h1>
-          <p>Track every brief you've submitted — we update the status as your project moves forward.</p>
-        </div>
-        <div class="dash-actions">
-          <button type="button" class="btn btn-ghost" id="dashRefresh">↻ Refresh</button>
-          <a href="start-project.html" class="btn btn-primary magnetic">Start New Project <span class="btn-arrow">→</span></a>
-        </div>
-      </div>
+      <div class="wizard-card profile-card">
+        <div class="profile-avatar" id="profileAvatar">U</div>
+        <h1 id="profileName">Loading…</h1>
+        <p class="profile-mail" id="profileEmail"></p>
 
-      <div id="dashMsg" class="dash-msg" hidden>Loading your projects…</div>
-      <div class="dash-grid" id="dashGrid"></div>
+        <div class="profile-row">
+          <i>Member since<b id="profileSince">—</b></i>
+          <i>Account<b id="profileId">—</b></i>
+        </div>
+
+        <div class="profile-actions">
+          <a href="dashboard.html" class="btn btn-glass" id="profileProjects">My Projects</a>
+          <a href="start-project.html" class="btn btn-primary magnetic">Start New Project <span class="btn-arrow">→</span></a>
+          <button type="button" class="btn btn-ghost" id="profileLogout">Log out</button>
+        </div>
+        <p class="profile-msg" id="profileMsg" hidden></p>
+      </div>
     </div>
   </section>
 
@@ -71,6 +73,6 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="js/supabase.js"></script>
   <script src="js/auth.js"></script>
-  <script src="js/dashboard.js"></script>
+  <script src="js/profile.js"></script>
 </body>
 </html>

@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/auth.css">
 </head>
 <body>
 
@@ -67,7 +68,10 @@
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
       <div class="nav-actions">
-        <a href="start-project.html" class="btn btn-ghost btn-sm nav-cta">Start a Project</a>
+        <a href="start-project.html" class="btn btn-ghost btn-sm nav-cta" id="authGuestCta">Get Started</a>
+        <a href="profile.html" class="au-chip au-chip-link nav-cta" id="authProfileLink" aria-label="My profile" style="display:none">
+          <span class="au-ico">U</span>
+        </a>
         <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
@@ -1265,6 +1269,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="js/supabase.js"></script>
+  <script src="js/auth.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>

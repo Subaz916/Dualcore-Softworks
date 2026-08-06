@@ -13,6 +13,8 @@
   const userChip = qs('#authUserChip');
   const logoutBtn = qs('#authLogout');
   const myProjectsBtn = qs('#myProjectsLink');
+  const profileLink = qs('#authProfileLink');
+  const guestCta = qs('#authGuestCta');
 
   /* ---------- Session helpers ---------- */
   async function getUser() {
@@ -39,6 +41,18 @@
           userChip.style.display = 'none';
         }
       }
+      if (profileLink) {
+        if (loggedIn) {
+          const name = (auth.user.user_metadata && auth.user.user_metadata.full_name) ||
+            (auth.user.email || 'U').split('@')[0];
+          const ico = profileLink.querySelector('.au-ico');
+          if (ico) ico.textContent = name.charAt(0).toUpperCase();
+          profileLink.style.display = '';
+        } else {
+          profileLink.style.display = 'none';
+        }
+      }
+      if (guestCta) guestCta.style.display = loggedIn ? 'none' : '';
       if (logoutBtn) logoutBtn.style.display = loggedIn ? '' : 'none';
       if (myProjectsBtn) myProjectsBtn.style.display = loggedIn ? '' : 'none';
       if (authSection) authSection.classList.toggle('is-logged', loggedIn);
