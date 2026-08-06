@@ -47,6 +47,13 @@
   /* ---------- Data loading ---------- */
   async function loadAll(sb) {
     statusEl.textContent = 'Loading…';
+    const { data, error } = await sb.rpc('get_admin_view');
+    if (!error && data && data.contacts && data.projects) {
+      contactsCache = data.contacts || [];
+      projectsCache = data.projects || [];
+      renderAll(sb, null);
+      return;
+    }
     const [cRes, pRes] = await Promise.all([
       sb.from('contacts').select('*').order('created_at', { ascending: false }),
       sb.from('projects').select('*').order('created_at', { ascending: false }),
@@ -55,7 +62,11 @@
     if (pRes.error) console.error('projects:', pRes.error);
     contactsCache = cRes.data || [];
     projectsCache = pRes.data || [];
-    renderAll(sb, cRes.error || pRes.error);
+    const err = cRes.error || pRes.error || error;
+    if (err && /permission denied|--access denied/i.test(err.message || '')) {
+      err.userHint = 'Admin DB access is blocked. Open Supabase → SQL Editor and re-run db/migration-admin.sql, then reload.';
+    }
+    renderAll(sb, err);
   }
 
   function renderAll(sb, loadErr) {
@@ -64,7 +75,7 @@
     qs('#statProjects').textContent = projectsCache.length;
     qs('#cntContacts').textContent = contactsCache.length;
     qs('#cntProjects').textContent = projectsCache.length;
-    statusEl.textContent = loadErr ? '⚠ ' + (loadErr.message || 'Could not load data from Supabase.') : '';
+    statusEl.textContent = loadErr ? '⚠ ' + (loadErr.userHint || loadErr.message || 'Could not load data from Supabase.') : '';
     renderCurrentTab(sb);
   }
 

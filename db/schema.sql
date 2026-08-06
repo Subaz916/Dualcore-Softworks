@@ -93,6 +93,34 @@ $$;
 
 grant execute on function public.promote_admin() to authenticated;
 
+-- ---------- 2b. Admin overview RPC (bypasses RLS admin-row issues) ----------
+-- security definer runs as the function owner (postgres), so it can read
+-- every row. Access is enforced inside the function by checking the JWT
+-- email against the admin email, so non-admins get nothing.
+create or replace function public.get_admin_view()
+returns jsonb
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  result jsonb;
+begin
+  if (auth.jwt() ->> 'email') <> 'subhandaraz90@gmail.com' then
+    return null;
+  end if;
+  select jsonb_build_object(
+    'contacts',
+    coalesce((select jsonb_agg(t order by t.created_at desc) from public.contacts t), '[]'::jsonb),
+    'projects',
+    coalesce((select jsonb_agg(t order by t.created_at desc) from public.projects t), '[]'::jsonb)
+  ) into result;
+  return result;
+end;
+$$;
+
+grant execute on function public.get_admin_view() to authenticated;
+
 -- Admin users can read their own row (used by the admin panel check)
 create policy "Admin read self"
   on public.admins for select
