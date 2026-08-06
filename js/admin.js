@@ -168,7 +168,8 @@
 
   function projectHtml(p) {
     const d = p.data || {};
-    const brief = d.about || d.business || '';
+    const bizWhat = (d.business && d.business.what) || '';
+    const brief = d.about || bizWhat || '';
     const metaBits = [
       ['Type', p.project_type],
       ['Budget', p.budget],
@@ -189,7 +190,7 @@
           (brief ? '<button type="button" class="adm-btn brief-toggle" data-toggle-details="' + p.id + '">View brief</button>' : '') +
           '<div class="adm-item-body" id="det-' + p.id + '" style="display:none">' +
             (brief ? '<div class="adm-brief">' + esc(brief) + '</div>' : '') +
-            '<pre class="adm-details">' + esc(JSON.stringify(d, null, 2)) + '</pre>' +
+            '<pre class="adm-details">' + esc(fmtData(d)) + '</pre>' +
           '</div>' +
         '</div>' +
         '<div class="adm-item-side">' +
@@ -200,6 +201,34 @@
   }
 
   /* ---------- Helpers ---------- */
+  function fmtData(obj) {
+    const labels = {
+      about: 'About the project', basic: 'Basic info', name: 'Name', email: 'Email',
+      phone: 'Phone / WhatsApp', company: 'Company', country: 'Country', website: 'Website',
+      files: 'Files', notes: 'Final notes', assets: 'Existing assets', budget: 'Budget',
+      design: 'Design', style: 'Preferred style', branding: 'Branding', extras: 'Additional services',
+      business: 'Business', what: 'About the business', customers: 'Target customers',
+      features: 'Features', timeline: 'Timeline', inspiration: 'Inspiration',
+      projectType: 'Project type', acceptedTerms: 'Terms accepted', contactMethod: 'Contact method'
+    };
+    const lines = [];
+    const walk = (o, prefix) => {
+      Object.keys(o || {}).forEach((k) => {
+        const v = o[k];
+        const label = prefix + (labels[k] || (k.charAt(0).toUpperCase() + k.slice(1)));
+        if (v && typeof v === 'object' && !Array.isArray(v)) {
+          walk(v, label + ' › ');
+        } else {
+          if (v == null || v === '' || (Array.isArray(v) && !v.length)) return;
+          const str = Array.isArray(v) ? v.join(', ') : String(v);
+          lines.push(label + ': ' + str);
+        }
+      });
+    };
+    walk(obj, '');
+    return lines.join('\n');
+  }
+
   function fmtDate(iso) {
     if (!iso) return '';
     const d = new Date(iso);
