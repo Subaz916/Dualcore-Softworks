@@ -161,7 +161,7 @@
         if (!block) return;
         const hidden = block.style.display === 'none';
         block.style.display = hidden ? '' : 'none';
-        btn.textContent = hidden ? 'Hide brief' : 'View brief';
+        btn.textContent = hidden ? 'Hide details' : (btn.dataset.hasBrief === '1' ? 'View brief' : 'View details');
       });
     });
   }
@@ -187,7 +187,7 @@
         '<div class="adm-item-main">' +
           '<div class="adm-item-top"><b>' + esc(p.name || p.project_type || 'Brief') + '</b><span>' + esc(p.email || '') + '</span></div>' +
           '<div class="adm-meta-grid">' + metaBits + '</div>' +
-          (brief ? '<button type="button" class="adm-btn brief-toggle" data-toggle-details="' + p.id + '">View brief</button>' : '') +
+          '<button type="button" class="adm-btn brief-toggle" data-toggle-details="' + p.id + '" data-has-brief="' + (brief ? '1' : '0') + '">' + (brief ? 'View brief' : 'View details') + '</button>' +
           '<div class="adm-item-body" id="det-' + p.id + '" style="display:none">' +
             (brief ? '<div class="adm-brief">' + esc(brief) + '</div>' : '') +
             '<pre class="adm-details">' + esc(fmtData(d)) + '</pre>' +
