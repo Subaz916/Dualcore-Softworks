@@ -2051,7 +2051,8 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 6
   position: relative;
   display: flex;
   justify-content: center;
-  gap: 0;
+  align-items: stretch;
+  gap: 28px;
   padding: 60px 40px 40px;
 }
 .tm-card {
@@ -2065,10 +2066,8 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 6
   transition: transform .55s var(--ease), z-index .55s, box-shadow .55s, border-color .55s;
   will-change: transform;
 }
-.tm-card:nth-child(1) { transform: translateX(140px) rotate(4deg); z-index: 1; }
-.tm-card:nth-child(2) { transform: translateX(45px) rotate(-3deg); z-index: 2; }
-.tm-card:nth-child(3) { transform: translateX(-50px) rotate(3deg); z-index: 1; }
-.tm-card:nth-child(4) { transform: translateX(-145px) rotate(-4deg); z-index: 0; }
+.tm-card:nth-child(1) { transform: rotate(3deg); z-index: 1; }
+.tm-card:nth-child(2) { transform: rotate(-3deg); z-index: 2; }
 .tm-card:hover {
   transform: translateX(0) rotate(0) scale(1.05);
   z-index: 9;
