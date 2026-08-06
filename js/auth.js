@@ -8,6 +8,9 @@
   const qs = (s, c) => (c || document).querySelector(s);
   const qsa = (s, c) => Array.from((c || document).querySelectorAll(s));
 
+  /* Admin email — must match js/admin.js & db/schema.sql */
+  const ADMIN_EMAIL = 'subhandaraz90@gmail.com';
+
   const authSection = qs('#authSection');
   const wizardSection = qs('#wizard');
   const userChip = qs('#authUserChip');
@@ -15,6 +18,7 @@
   const myProjectsBtn = qs('#myProjectsLink');
   const profileLink = qs('#authProfileLink');
   const guestCta = qs('#authGuestCta');
+  const adminLink = qs('#authAdminLink');
 
   /* ---------- Session helpers ---------- */
   async function getUser() {
@@ -55,6 +59,11 @@
       if (guestCta) guestCta.style.display = loggedIn ? 'none' : 'inline-flex';
       if (logoutBtn) logoutBtn.style.display = loggedIn ? '' : 'none';
       if (myProjectsBtn) myProjectsBtn.style.display = loggedIn ? '' : 'none';
+      if (adminLink) {
+        const isAdmin = loggedIn &&
+          String(auth.user.email).toLowerCase() === ADMIN_EMAIL.toLowerCase();
+        adminLink.style.display = isAdmin ? 'inline-flex' : 'none';
+      }
       if (authSection) authSection.classList.toggle('is-logged', loggedIn);
     });
   }
