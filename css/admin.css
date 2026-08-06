@@ -73,6 +73,53 @@
 .adm-item-top span { font-size: 12px; color: var(--muted); font-weight: 300; }
 .adm-item-body { margin-top: 8px; color: var(--muted); font-size: 13.5px; font-weight: 300; line-height: 1.6; }
 .adm-item-body .adm-msg { color: #d4d4d8; font-style: italic; }
+
+.adm-brief {
+  margin-top: 12px;
+  padding: 18px 20px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--primary);
+  background: rgba(255, 255, 255, .045);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14.5px;
+  line-height: 1.75;
+  letter-spacing: .01em;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.adm-brief::before {
+  content: 'PROJECT BRIEF';
+  display: block;
+  margin-bottom: 10px;
+  font-family: var(--font-head);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  color: var(--primary);
+}
+.adm-details {
+  margin-top: 12px;
+  padding: 16px 18px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(0, 0, 0, .35);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 12px;
+  font-weight: 400;
+  color: #e4e4e7;
+  line-height: 1.65;
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 280px;
+  overflow: auto;
+}
+.brief-toggle {
+  margin-top: 10px;
+  color: #fff;
+  border-color: rgba(255, 255, 255, .25);
+}
 .adm-item-meta { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
 .adm-item-meta i {
   font-style: normal;

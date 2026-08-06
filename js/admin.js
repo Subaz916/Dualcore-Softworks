@@ -161,7 +161,7 @@
         if (!block) return;
         const hidden = block.style.display === 'none';
         block.style.display = hidden ? '' : 'none';
-        btn.textContent = hidden ? 'Hide brief' : 'Show brief';
+        btn.textContent = hidden ? 'Hide brief' : 'View brief';
       });
     });
   }
@@ -186,10 +186,10 @@
         '<div class="adm-item-main">' +
           '<div class="adm-item-top"><b>' + esc(p.name || p.project_type || 'Brief') + '</b><span>' + esc(p.email || '') + '</span></div>' +
           '<div class="adm-meta-grid">' + metaBits + '</div>' +
-          (brief ? '<button type="button" class="adm-btn" style="margin-top:10px" data-toggle-details="' + p.id + '">Show brief</button>' : '') +
+          (brief ? '<button type="button" class="adm-btn brief-toggle" data-toggle-details="' + p.id + '">View brief</button>' : '') +
           '<div class="adm-item-body" id="det-' + p.id + '" style="display:none">' +
-            '<div class="adm-msg">' + esc(brief) + '</div>' +
-            '<pre style="margin-top:10px;font-size:11px;color:#6b6b76;white-space:pre-wrap;max-height:220px;overflow:auto">' + esc(JSON.stringify(d, null, 2)) + '</pre>' +
+            (brief ? '<div class="adm-brief">' + esc(brief) + '</div>' : '') +
+            '<pre class="adm-details">' + esc(JSON.stringify(d, null, 2)) + '</pre>' +
           '</div>' +
         '</div>' +
         '<div class="adm-item-side">' +
