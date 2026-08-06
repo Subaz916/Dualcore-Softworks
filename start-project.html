@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
   <link rel="stylesheet" href="css/wizard.css">
+  <link rel="stylesheet" href="css/auth.css">
 </head>
 <body class="wizard-body">
 
@@ -36,10 +37,69 @@
       <span class="brand-text">Dualcore<em>Softworks</em></span>
     </a>
     <div class="w-topbar-right">
+      <span class="au-chip" id="authUserChip"></span>
+      <a href="dashboard.html" class="btn btn-glass btn-sm" id="myProjectsLink" style="display:none">My Projects</a>
+      <button type="button" class="btn btn-ghost btn-sm" id="authLogout">Log out</button>
       <a href="index.html#contact" class="btn btn-ghost btn-sm">Contact</a>
       <a href="index.html" class="btn btn-glass btn-sm">← Back to site</a>
     </div>
   </header>
+
+  <!-- ================= AUTH GATE ================= -->
+  <section class="auth-section" id="authSection">
+    <div class="container">
+      <div class="wizard-card auth-card" id="authGate">
+        <div class="auth-brand">
+          <span class="eyebrow">Client Portal</span>
+          <h1>Sign in to <span class="grad-text">start</span></h1>
+          <p>Create a free account to submit your project and track its progress.</p>
+        </div>
+
+        <div class="auth-tabs">
+          <button type="button" class="auth-tab active" data-auth="login">Sign In</button>
+          <button type="button" class="auth-tab" data-auth="signup">Create Account</button>
+        </div>
+
+        <form class="auth-form show" id="loginForm" novalidate>
+          <div class="field">
+            <input type="email" id="liEmail" placeholder=" " required>
+            <label for="liEmail">Email address</label>
+            <span class="field-bar"></span>
+          </div>
+          <div class="field">
+            <input type="password" id="liPass" placeholder=" " required>
+            <label for="liPass">Password</label>
+            <span class="field-bar"></span>
+          </div>
+          <button type="submit" class="btn btn-primary" data-ripple>Sign In <span class="btn-arrow">→</span></button>
+          <p class="auth-error" id="authError" role="alert"></p>
+        </form>
+
+        <form class="auth-form" id="signupForm" novalidate>
+          <div class="field">
+            <input type="text" id="suName" placeholder=" " required>
+            <label for="suName">Full name</label>
+            <span class="field-bar"></span>
+          </div>
+          <div class="field">
+            <input type="email" id="suEmail" placeholder=" " required>
+            <label for="suEmail">Email address</label>
+            <span class="field-bar"></span>
+          </div>
+          <div class="field">
+            <input type="password" id="suPass" placeholder=" " required>
+            <label for="suPass">Password (min 8 characters)</label>
+            <span class="field-bar"></span>
+          </div>
+          <button type="submit" class="btn btn-primary" data-ripple>Create Account <span class="btn-arrow">→</span></button>
+          <p class="auth-error" role="alert"></p>
+          <p class="auth-confirm" id="authConfirm">✓ Account created — we sent a confirmation link to your email. Please click it, then sign in.</p>
+        </form>
+
+        <p class="auth-alt">Already signed in? <a id="authGoWizard">Continue to the project planner →</a></p>
+      </div>
+    </div>
+  </section>
 
   <!-- ================= WIZARD ================= -->
   <section class="wizard-section" id="wizard">
@@ -447,6 +507,9 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/auth.js"></script>
   <script src="js/start-project.js"></script>
 </body>
 </html>

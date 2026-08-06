@@ -425,19 +425,42 @@
       formStatus.className = 'form-status';
       formStatus.textContent = '';
 
-      setTimeout(() => {
+      const sb = window.supabase;
+      if (!sb) {
+        formStatus.textContent = 'Database not connected. Please try again later.';
+        formStatus.className = 'form-status err';
         submitBtn.classList.remove('loading');
-        submitBtn.classList.add('success');
-        qs('.submit-label', submitBtn).innerHTML = 'Message sent ✓';
-        formStatus.textContent = "Thank you! We'll get back to you within 2 hours.";
-        formStatus.className = 'form-status ok';
         submitBtn.disabled = false;
-        form.reset();
-        setTimeout(() => {
-          submitBtn.classList.remove('success');
-          qs('.submit-label', submitBtn).innerHTML = 'Send Message <span class="btn-arrow">→</span>';
-        }, 6000);
-      }, 1600);
+        return;
+      }
+
+      sb.from('contacts')
+        .insert({
+          type: 'contact',
+          name: qs('#fname', form).value.trim(),
+          email: qs('#fmail', form).value.trim(),
+          message: qs('#fmsg', form).value.trim(),
+        })
+        .then(({ error }) => {
+          if (error) throw error;
+          submitBtn.classList.remove('loading');
+          submitBtn.classList.add('success');
+          qs('.submit-label', submitBtn).innerHTML = 'Message sent ✓';
+          formStatus.textContent = "Thank you! We'll get back to you within 2 hours.";
+          formStatus.className = 'form-status ok';
+          form.reset();
+          setTimeout(() => {
+            submitBtn.classList.remove('success');
+            qs('.submit-label', submitBtn).innerHTML = 'Send Message <span class="btn-arrow">→</span>';
+          }, 6000);
+        })
+        .catch((err) => {
+          console.error('Supabase contact insert failed:', err);
+          submitBtn.classList.remove('loading');
+          formStatus.textContent = 'Something went wrong. Email us at hello@dualcore.dev';
+          formStatus.className = 'form-status err';
+          submitBtn.disabled = false;
+        });
     });
   }
 
@@ -453,9 +476,24 @@
         newsMsg.className = 'news-msg err';
         return;
       }
-      newsMsg.textContent = 'Subscribed ✓ Watch your inbox for the first issue.';
-      newsMsg.className = 'news-msg ok';
-      inp.value = '';
+      const sb = window.supabase;
+      if (!sb) {
+        newsMsg.textContent = 'Database not connected. Please try again later.';
+        newsMsg.className = 'news-msg err';
+        return;
+      }
+      sb.from('contacts')
+        .insert({ type: 'newsletter', email: inp.value.trim() })
+        .then(() => {
+          newsMsg.textContent = 'Subscribed ✓ Watch your inbox for the first issue.';
+          newsMsg.className = 'news-msg ok';
+          inp.value = '';
+        })
+        .catch((err) => {
+          console.error('Supabase newsletter insert failed:', err);
+          newsMsg.textContent = 'Please enter a valid email.';
+          newsMsg.className = 'news-msg err';
+        });
     });
   }
 

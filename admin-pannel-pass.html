@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin Panel — Dualcore Softworks</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%233B82F6'/%3E%3Cstop offset='1' stop-color='%238B5CF6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='%2309090B'/%3E%3Cpath d='M16 44V20l16 24V20' stroke='url(%23g)' stroke-width='6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/wizard.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="wizard-body">
+
+  <div class="site-bg" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-aurora a1"></div>
+    <div class="bg-aurora a2"></div>
+    <div class="bg-grain"></div>
+  </div>
+
+  <!-- Top bar -->
+  <header class="w-topbar" id="wTopbar">
+    <a href="index.html" class="brand" aria-label="Dualcore Softworks home">
+      <span class="brand-mark">
+        <svg viewBox="0 0 64 64" width="32" height="32"><defs><linearGradient id="wt-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0D7377"/><stop offset="1" stop-color="#0D7377"/></linearGradient></defs><rect width="64" height="64" rx="16" fill="#323232"/><path d="M17 21v22l15-22v22" stroke="url(#wt-g)" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <span class="brand-text">Dualcore<em>Softworks</em></span>
+    </a>
+    <div class="w-topbar-right">
+      <span class="adm-email-chip" id="admChip" style="display:none"></span>
+      <a href="index.html" class="btn btn-glass btn-sm">← Back to site</a>
+    </div>
+  </header>
+
+  <!-- ================= LOGIN ================= -->
+  <section class="auth-section" id="admLoginSection">
+    <div class="container">
+      <div class="wizard-card adm-login-card" id="admLoginCard">
+        <div class="auth-brand">
+          <span class="eyebrow">Restricted</span>
+          <h1>Admin <span class="grad-text">Panel</span></h1>
+          <p>Authorized staff only. Sign in with your admin account.</p>
+        </div>
+
+        <form id="admLoginForm" novalidate>
+          <div class="field">
+            <input type="email" id="admEmail" placeholder=" " required>
+            <label for="admEmail">Admin email</label>
+            <span class="field-bar"></span>
+          </div>
+          <div class="field">
+            <input type="password" id="admPass" placeholder=" " required>
+            <label for="admPass">Password</label>
+            <span class="field-bar"></span>
+          </div>
+          <button type="submit" class="btn btn-primary" id="admLoginBtn">Unlock Panel <span class="btn-arrow">→</span></button>
+          <p class="auth-error" id="admError" role="alert"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PANEL ================= -->
+  <section class="adm-panel" id="admPanel">
+    <div class="container">
+
+      <div class="adm-head">
+        <div>
+          <span class="eyebrow">Admin Panel</span>
+          <h1>Leads &amp; <span class="grad-text">Projects</span></h1>
+          <p>Review contact submissions and update project status — clients see the change instantly.</p>
+        </div>
+        <button type="button" class="btn btn-ghost" id="admLogout">Log out</button>
+      </div>
+
+      <div class="adm-stats">
+        <div class="adm-stat"><b id="statLeads">0</b><span>Total submissions</span></div>
+        <div class="adm-stat"><b id="statUnread">0</b><span>Unread</span></div>
+        <div class="adm-stat"><b id="statProjects">0</b><span>Projects</span></div>
+      </div>
+
+      <div class="adm-tabs">
+        <button type="button" class="adm-tab active" data-tab="contacts">Message Inbox <span class="adm-count" id="cntContacts">0</span></button>
+        <button type="button" class="adm-tab" data-tab="projects">Projects <span class="adm-count" id="cntProjects">0</span></button>
+      </div>
+
+      <div id="admView"></div>
+      <p class="adm-msg" id="admStatus"></p>
+
+    </div>
+  </section>
+
+  <footer class="w-footer">
+    <div class="container">
+      <p>© <span id="year">2026</span> Dualcore Softworks · Internal admin panel · Confidential</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

@@ -182,15 +182,53 @@
     btn.textContent = 'Sending…';
 
     const data = collect();
+    const b = data.basic;
+    const sb = window.supabase;
 
-    // Simulated async — swap for a real endpoint post(fetch) in production.
-    setTimeout(() => {
-      btn.textContent = 'Sending ✓';
-      form.style.display = 'none';
-      success.hidden = false;
-      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      console.log('Project brief:', data);
-    }, 1400);
+    if (!sb) {
+      btn.disabled = false;
+      btn.textContent = 'Start My Project 🚀';
+      showErr('Database not connected. Please try again later.');
+      return;
+    }
+
+    sb.auth.getSession().then(({ data: sessionData }) => {
+      const userId = sessionData && sessionData.session ? sessionData.session.user.id : null;
+      if (!userId) {
+        btn.disabled = false;
+        btn.textContent = 'Start My Project 🚀';
+        showErr('Please sign in before submitting your project.');
+        return;
+      }
+      sb.from('projects')
+        .insert({
+          user_id: userId,
+          name: b.name,
+          email: b.email,
+          company: b.company,
+          phone: b.phone,
+          country: b.country,
+          website: b.website,
+          project_type: data.projectType,
+          budget: data.budget,
+          timeline: data.timeline,
+          contact_method: data.contactMethod,
+          data: data,
+        })
+        .then(({ error }) => {
+          if (error) throw error;
+          btn.textContent = 'Sending ✓';
+          form.style.display = 'none';
+          success.hidden = false;
+          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        })
+        .catch((err) => {
+          console.error('Supabase project insert failed:', err);
+          btn.disabled = false;
+          btn.textContent = 'Start My Project 🚀';
+          showErr('Something went wrong sending your brief. Email us at hello@dualcore.dev');
+        });
+    });
   });
 
   /* ---------- Collect answers ---------- */
