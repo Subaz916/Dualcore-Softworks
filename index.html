@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dualcore Softworks — a premium software development agency building custom websites, web applications, SaaS products, AI applications and enterprise software. Engineering the future, one product at a time.">
+  <meta name="keywords" content="software agency, web development, SaaS, AI, UI/UX design, mobile apps, cloud solutions">
+  <meta name="theme-color" content="#09090B">
+  <meta property="og:title" content="Dualcore Softworks — Premium Software Development Agency">
+  <meta property="og:description" content="Engineering the future, one product at a time. Custom websites, SaaS, AI apps, mobile apps and enterprise software.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%233B82F6'/%3E%3Cstop offset='1' stop-color='%238B5CF6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='%2309090B'/%3E%3Cpath d='M16 44V20l16 24V20' stroke='url(%23g)' stroke-width='6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <title>Dualcore Softworks — Premium Software Development Agency</title>
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader-inner">
+      <div class="preloader-mark">
+        <span></span><span></span>
+      </div>
+      <div class="preloader-name">DUALCORE<span>SOFTWORKS</span></div>
+      <div class="preloader-bar"><i></i></div>
+    </div>
+  </div>
+
+  <!-- Cursor -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"><i></i></div>
+
+  <!-- Ambient Background -->
+  <div class="site-bg" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-aurora a1"></div>
+    <div class="bg-aurora a2"></div>
+    <div class="bg-aurora a3"></div>
+    <div class="bg-grain"></div>
+  </div>
+
+  <!-- ================= NAV ================= -->
+  <header class="nav" id="siteNav">
+    <div class="nav-strip"></div>
+    <div class="nav-inner">
+      <a href="#home" class="brand" aria-label="Dualcore Softworks home">
+        <span class="brand-mark" id="brandMark">
+          <svg viewBox="0 0 64 64" width="34" height="34"><defs><linearGradient id="bm-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0D7377"/><stop offset="1" stop-color="#0D7377"/></linearGradient></defs><rect width="64" height="64" rx="16" fill="#323232"/><path d="M17 21v22l15-22v22" stroke="url(#bm-g)" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="brand-text">Dualcore<em>Softworks</em></span>
+      </a>
+      <nav class="nav-links" id="navLinks" aria-label="Primary">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#work" class="nav-link">Work</a>
+        <a href="#stack" class="nav-link">Stack</a>
+        <a href="#process" class="nav-link">Process</a>
+        <a href="#pricing" class="nav-link">Pricing</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="start-project.html" class="btn btn-ghost btn-sm nav-cta">Start a Project</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-menu-bg"></div>
+    <div class="mobile-menu-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#stack">Stack</a>
+      <a href="#process">Process</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="mobile-menu-foot">
+      <a href="start-project.html" class="btn btn-primary">Start a Project</a>
+      <p>hello@dualcore.dev</p>
+    </div>
+  </div>
+
+  <!-- ================= 1. HERO ================= -->
+  <section class="hero" id="home">
+    <div class="hero-bg" id="heroBg" aria-hidden="true">
+      <div class="hero-grid"></div>
+      <div class="blob blob-1" data-parallax="40"></div>
+      <div class="blob blob-2" data-parallax="-60"></div>
+      <div class="blob blob-3" data-parallax="25"></div>
+      <div class="particles" id="particles"></div>
+    </div>
+
+    <div class="hero-inner container">
+      <div class="hero-left">
+        <div class="hero-badge reveal" data-reveal="fade-up">
+          <span class="pulse-dot"></span> Premium Software Development Agency
+        </div>
+
+        <h1 class="hero-title">
+          <span class="line-mask"><span class="word" data-reveal="rise" style="--d:0ms">Building</span></span>
+          <span class="line-mask"><span class="word" data-reveal="rise" style="--d:90ms">Digital Products</span></span>
+          <span class="line-mask"><span class="word grad" data-reveal="rise" style="--d:180ms">That Scale</span></span>
+          <span class="line-mask"><span class="word grad-c" data-reveal="rise" style="--d:270ms">Businesses</span></span>
+        </h1>
+
+        <p class="hero-sub reveal" data-reveal="fade-up" data-delay="200">
+          We engineer fast, beautiful and intelligent software — from custom
+          websites to AI-native platforms. Design. Code. Scale.
+        </p>
+
+        <div class="hero-actions reveal" data-reveal="fade-up" data-delay="350">
+          <a href="start-project.html" class="btn btn-primary magnetic" data-ripple>
+            <span class="btn-shine"></span> Start a Project <span class="btn-arrow">→</span>          </a>
+          <a href="#work" class="btn btn-glass magnetic" data-ripple>View Portfolio</a>
+        </div>
+
+        <div class="hero-trust reveal" data-reveal="fade-up" data-delay="500">
+          <div class="stars" aria-label="5 star rating">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <div class="trust-item"><b class="count" data-count="300" data-suffix="+">0</b><span>Clients</span></div>
+          <div class="trust-item"><b class="count" data-count="10" data-suffix="+">0</b><span>Countries</span></div>
+          <div class="trust-item"><b class="count" data-count="8" data-suffix="+">0</b><span>Years</span></div>
+        </div>
+      </div>
+
+      <!-- Floating laptop mockup -->
+      <div class="hero-showcase" id="heroShowcase">
+        <div class="laptop-float" data-tilt>
+          <div class="laptop">
+            <div class="laptop-screen">
+              <div class="screen-top">
+                <span class="dot-red"></span><span class="dot-yel"></span><span class="dot-grn"></span>
+                <span class="screen-url">dualcore.app/dashboard</span>
+              </div>
+              <div class="screen-body">
+                <div class="dash-side">
+                  <span class="dash-logo">◆</span>
+                  <i class="dash-line active"></i><i class="dash-line"></i><i class="dash-line"></i><i class="dash-line"></i>
+                </div>
+                <div class="dash-main">
+                  <div class="dash-bars">
+                    <span style="--h:34%"></span><span style="--h:58%"></span><span style="--h:44%"></span>
+                    <span style="--h:76%"></span><span style="--h:62%"></span><span style="--h:88%"></span>
+                    <span style="--h:70%"></span><span style="--h:95%"></span>
+                  </div>
+                  <div class="dash-row">
+                    <span class="chip"></span><span class="chip"></span><span class="chip"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="float-card fc-analytics" data-parallax="18" data-tilt>
+            <div class="fc-head"><i>◆</i><span>Analytics</span><b class="up">+24%</b></div>
+            <div class="fc-chart"><i style="--x:8%"></i><i style="--x:26%"></i><i style="--x:44%"></i><i style="--x:62%"></i><i style="--x:80%"></i></div>
+          </div>
+
+          <div class="float-card fc-chat" data-parallax="-15" data-tilt>
+            <span class="fc-ai">AI</span>
+            <div class="fc-bubble">How can I scale your platform today?</div>
+            <div class="fc-typing"><i></i><i></i><i></i></div>
+          </div>
+
+          <div class="float-card fc-code" data-parallax="22" data-tilt>
+            <div class="code-line"><b class="k">const</b> ship <b class="o">=</b> async <b class="f">()</b> =&gt; {</div>
+            <div class="code-line"><b class="k">await</b> <b class="f">build</b>(fast, beautiful);</div>
+            <div class="code-line"><b class="k">return</b> scale(business);</div>
+          </div>
+
+          <div class="float-card fc-preview" data-parallax="-20" data-tilt>
+            <div class="fc-pv-top"><i></i><i></i><i></i></div>
+            <div class="fc-pv-img">
+              <span class="pv-block"></span><span class="pv-block"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll" aria-hidden="true">
+      <span class="scroll-text">Scroll</span>
+      <span class="scroll-mouse"><i></i></span>
+      <span class="scroll-line"></span>
+    </div>
+  </section>
+
+  <!-- ================= 2. CLIENT LOGOS ================= -->
+  <section class="clients" aria-label="Trusted by">
+    <div class="container">
+      <p class="clients-label section-kicker">Trusted by modern teams worldwide</p>
+    </div>
+    <div class="marquee" id="marquee">
+      <div class="marquee-track" id="marqueeTrack">
+        <span class="logo"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>NovaTech</span>
+        <span class="logo">◆ Helios</span>
+        <span class="logo"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/></svg>Orbitly</span>
+        <span class="logo">⬡ Vertex Labs</span>
+        <span class="logo"><svg viewBox="0 0 24 24"><path d="M12 2l10 20H2L12 2z"/></svg>Pinnacle</span>
+        <span class="logo">● MedTrust</span>
+        <span class="logo"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="14" rx="3"/><path d="M8 7V5a4 4 0 018 0v2"/></svg>SecurBank</span>
+        <span class="logo">◐ Curio</span>
+        <span class="logo"><svg viewBox="0 0 24 24"><path d="M3 21V3l18 9-18 9z"/></svg>RetailGrid</span>
+        <span class="logo">✦ Quantum Soft</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 3. ABOUT ================= -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="section-head about-head section-reveal">
+        <span class="eyebrow">About <i>Dualcore</i></span>
+        <h2 class="section-title">Two cores.<br><span class="grad-text">One obsession</span> with great software.</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-statement">
+          <p class="statement-lead section-reveal">"Our mission is to build <span class="grad-text">fast,</span> <span class="grad-c">scalable,</span> and <span class="grad-p">beautiful</span> software that gives our clients a unfair digital advantage."</p>
+          <p class="statement-sub section-reveal">Dualcore Softworks was born from a simple belief — engineering excellence is a dual discipline: deep craft plus deep strategy. We combine senior engineering, world-class design and product thinking to ship software that doesn't just work, it wins.</p>
+          <div class="about-meta section-reveal">
+            <div class="about-quote-mark">"</div>
+            <p class="byline">The Dualcore Team</p>
+          </div>
+        </div>
+
+        <div class="about-visual">
+          <div class="timeline" id="aboutTimeline">
+            <div class="tl-line"><i class="tl-progress" id="tlProgress"></i></div>
+
+            <article class="tl-item section-reveal" data-side="left">
+              <span class="tl-dot"><i></i></span>
+              <div class="tl-card">
+                <b class="tl-year">2018</b>
+                <h4>Foundation</h4>
+                <p>Dualcore Softworks is founded in a coffee shop, one laptop, two engineers.</p>
+              </div>
+            </article>
+
+            <article class="tl-item section-reveal" data-side="right">
+              <span class="tl-dot"><i></i></span>
+              <div class="tl-card">
+                <b class="tl-year">2020</b>
+                <h4>First 100 Projects</h4>
+                <p>We cross 100 shipped products and open our first global client account.</p>
+              </div>
+            </article>
+
+            <article class="tl-item section-reveal" data-side="left">
+              <span class="tl-dot"><i></i></span>
+              <div class="tl-card">
+                <b class="tl-year">2023</b>
+                <h4>Growth Phase</h4>
+                <p>25+ engineers, AI practice launched, clients across 10+ countries.</p>
+              </div>
+            </article>
+
+            <article class="tl-item section-reveal" data-side="right">
+              <span class="tl-dot"><i></i></span>
+              <div class="tl-card">
+                <b class="tl-year">Now</b>
+                <h4>Vision</h4>
+                <p>Scaling into an enterprise-grade studio powering the next generation of software.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 4. SERVICES ================= -->
+  <section class="services-section section" id="services">
+    <div class="container">
+      <div class="section-head side section-reveal">
+        <div>
+          <span class="eyebrow">What we do</span>
+          <h2>Twelve capabilities.<br>One flawless output.</h2>
+        </div>
+        <p class="section-desc">Every service engineered with the same premium standard — architecture, design, security and speed. No handoffs. No compromises.</p>
+      </div>
+
+      <div class="services" id="servicesAccordion">
+        <button class="svc-item section-reveal active" data-service="0" aria-expanded="true">
+          <span class="svc-num">01</span>
+          <span class="svc-icon lg"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5L12 3z"/></svg></span>
+          <span class="svc-info">
+            <b class="svc-title">Custom Website Development</b>
+            <span class="svc-desc">Conversion-focused, pixel-perfect websites engineered for speed, SEO and storytelling.</span>
+          </span>
+          <span class="svc-meta">Web</span>
+          <span class="svc-toggle">+</span>
+        </button>
+
+        <button class="svc-item" data-service="1" aria-expanded="false">
+          <span class="svc-num">02</span>
+          <span class="svc-icon lg"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg></span>
+          <span class="svc-info"><b class="svc-title">Web Applications</b><span class="svc-desc">Complex, data-driven platforms with realtime features, dashboards and rich workflows.</span></span>
+          <span class="svc-meta">App</span>
+          <span class="svc-toggle">+</span>
+        </button>
+
+        <button class="svc-item" data-service="2" aria-expanded="false">
+          <span class="svc-num">03</span>
+          <span class="svc-icon lg"><svg viewBox="0 0 24 24"><path d="M4 6l8 5 8-5M4 6v12l8 5 8-5V6"/></svg></span>
+          <span class="svc-info"><b class="svc-title">SaaS Development</b><span class="svc-desc">Multi-tenant products with billing, auth, teams and scale-ready cloud architecture.</span></span>
+          <span class="svc-meta">SaaS</span>
+          <span class="svc-toggle">+</span>
+        </button>
+
+        <button class="svc-item" data-service="3" aria-expanded="false">
+          <span class="svc-num">04</span>
+          <span class="svc-icon lg"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M19.1 4.9l-2.8 2.8M7.7 16.3l-2.8 2.8"/></svg></span>
+          <span class="svc-info"><b class="svc-title">AI Integration</b><span class="svc-desc">LLM-powered chat, copilots, agents and automation woven into your product edge.</span></span>
+          <span class="svc-meta">AI</span>
+          <span class="svc-toggle">+</span>
+        </button>
+
+        <button class="svc-item" data-service="4" aria-expanded="false">
+          <span class="svc-num">05</span>
+          <span class="svc-icon lg"><svg viewBox="0 0 24 24"><path d="M13 2L4.5 13.5h5L11 22l8.5-11.5h-5L13 2z"/></svg></span>
+          <span class="svc-info"><b class="svc-title">Automation Systems</b><span class="svc-desc">Workflow, CRM and pipeline automation that removes busywork and compounds ROI.</span></span>
+          <span class="svc-meta">Auto</span>
+          <span class="svc-toggle">+</span>
+        </button>
+
+        <button class="svc-item" data-service="5" aria-expanded="false">
+          <span class="svc-num">06</span>
+          <span class="svc-icon lg"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="3"/><line x1="11" y1="18" x2="13" y2="18"/></svg></span>
+          <span class="svc-info"><b class="svc-title">Mobile Apps</b><span class="svc-desc">Native-feel iOS & Android applications built with cross-platform performance in mind.</span></span>
+          <span class="svc-meta">Mobile</span>
+          <span class="svc-toggle">+</span>
+        </button>
+
+        <button class="svc-item" data-service="6" aria-expanded="false">
+          <span class="svc-num">07</span>
+          <span class="svc-icon lg"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></span>
+          <span class="svc-info"><b class="svc-title">UI / UX Design</b><span class="svc-desc">Research-driven interfaces, design systems and experiences users rave about.</span></span>
+          <span class="svc-meta">Design</span>
+          <span class="svc-toggle">+</span>
+        </button>
+
+        <button class="svc-item" data-service="7" aria-expanded="false">
+          <span class="svc-num">08</span>
+          <span class="svc-icon lg"><svg viewBox="0 0 24 24"><path d="M7 3l7 9-7 9M17 3l-7 9 7 9"/></svg></span>
+          <span class="svc-info"><b class="svc-title">API Development</b><span class="svc-desc">REST &amp; GraphQL APIs with clean contracts, docs, auth and bulletproof integrity.</span></span>
+          <span class="svc-meta">API</span>
+          <span class="svc-toggle">+</span>
+        </button>
+
+        <button class="svc-item" data-service="8" aria-expanded="false">
+          <span class="svc-num">09</span>
+          <span class="svc-icon lg"><svg viewBox="0 0 24 24"><path d="M4 8h16M4 16h16M2 12h20M6 4l-2 4M18 4l2 4M6 20l-2-4M18 20l2-4"/></svg></span>
+          <span class="svc-info"><b class="svc-title">Cloud Solutions</b><span class="svc-desc">AWS, Vercel, Supabase &amp; Docker infrastructure that stays fast at any scale.</span></span>
+          <span class="svc-meta">Cloud</span>
+          <span class="svc-toggle">+</span>
+        </button>
+
+        <button class="svc-item" data-service="9" aria-expanded="false">
+          <span class="svc-num">10</span>
+          <span class="svc-icon lg"><svg viewBox="0 0 24 24"><path d="M3 17l5-6 4 4 6-9 3 3M3 21h18"/></svg></span>
+          <span class="svc-info"><b class="svc-title">SEO Optimization</b><span class="svc-desc">Technical SEO, speed and semantic structure that make you impossible to ignore.</span></span>
+          <span class="svc-meta">SEO</span>
+          <span class="svc-toggle">+</span>
+        </button>
+
+        <button class="svc-item" data-service="10" aria-expanded="false">
+          <span class="svc-num">11</span>
+          <span class="svc-icon lg"><svg viewBox="0 0 24 24"><path d="M12 21a9 9 0 100-18v9"/><path d="M12 12l6-6"/></svg></span>
+          <span class="svc-info"><b class="svc-title">Maintenance</b><span class="svc-desc">24/7 monitoring, updates and improvements so your product never grows stale.</span></span>
+          <span class="svc-meta">Care</span>
+          <span class="svc-toggle">+</span>
+        </button>
+
+        <button class="svc-item" data-service="11" aria-expanded="false">
+          <span class="svc-num">12</span>
+          <span class="svc-icon lg"><svg viewBox="0 0 24 24"><path d="M12 2a4 4 0 014 4M8 6h8M9 6V4M15 6V4M8 12h8M9 12v-2M15 12v-2M4 4h2M18 4h2M6 16h12M6 16l2 2M6 16l2-2M18 16l-2 2M18 16l-2-2"/></svg></span>
+          <span class="svc-info"><b class="svc-title">Consulting</b><span class="svc-desc">Architecture reviews, tech audits and roadmaps that de-risk your next big bet.</span></span>
+          <span class="svc-meta">Talk</span>
+          <span class="svc-toggle">+</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 5. FEATURED PROJECTS ================= -->
+  <section class="work-section section" id="work">
+    <div class="container">
+      <div class="section-head center section-reveal">
+        <span class="eyebrow">Featured Work</span>
+        <h2>Products that <span class="grad-text">perform</span></h2>
+        <p class="section-desc">A selection of platforms engineered, designed and shipped by Dualcore.</p>
+      </div>
+
+      <div class="work-filters section-reveal" role="tablist" aria-label="Filter projects">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="saas">SaaS</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="app">Apps</button>
+        <button class="filter-btn" data-filter="ai">AI</button>
+      </div>
+
+      <div class="masonry" id="masonry">
+        <article class="work-card section-reveal tall" data-cat="saas">
+          <div class="wc-visual">
+            <div class="wc-thumb" style="--img: linear-gradient(135deg,#0b1220,#131a2b 55%,#1b2440)">
+              <div class="mini-dash"><i style="--h:40%"></i><i style="--h:70%"></i><i style="--h:55%"></i><i style="--h:90%"></i><i style="--h:65%"></i></div>
+            </div>
+            <div class="wc-overlay">
+              <span class="wc-tag">VueFleet Dashboard</span>
+              <span class="wc-tech">Laravel · Vue · PostgreSQL</span>
+              <span class="wc-meta"><i>USA</i><i>4 mos</i><i>CLIENT: Fleetcorp</i></span>
+              <a href="#contact" class="wc-link">View Project <span>→</span></a>
+            </div>
+          </div>
+          <div class="wc-foot"><b>SaaS Dashboard</b><span>Analytics platform for logistics fleets</span></div>
+        </article>
+
+        <article class="work-card section-reveal-category" data-cat="web">
+          <div class="wc-visual">
+            <div class="wc-thumb" style="background: linear-gradient(135deg,#0f0a20,#1a1140 70%,#241a5e)">
+              <div class="mini-web"><i></i><i></i><i></i></div>
+            </div>
+            <div class="wc-overlay">
+              <span class="wc-tag">MedCare Portal</span>
+              <span class="wc-tech">React · Node · FHIR</span>
+              <span class="wc-meta"><i>2023</i> · <i>UK</i> · <i>MedTrust</i></span>
+              <a href="#contact" class="wc-link">View Project →</a>
+            </div>
+          </div>
+          <div class="wc-foot"><b>Healthcare Portal</b><span>Patient scheduling &amp; records</span></div>
+        </article>
+
+        <article class="work-card reveal" data-cat="app">
+          <div class="wc-visual">
+            <div class="wc-thumb" style="background: linear-gradient(135deg,#0a1412,#0e2a20 70%,#16402f)">
+              <div class="wc-phone"><i></i><i></i><i></i></div>
+            </div>
+            <div class="wc-overlay">
+              <span class="wc-tag">TableZero</span>
+              <span class="wc-tech">React Native · Supabase</span>
+              <span class="wc-meta"><i>2024</i> · <i>USA</i> · <i>Restaurant group</i></span>
+              <a href="#contact" class="wc-link">View Project →</a>
+            </div>
+          </div>
+          <div class="wc-foot"><b>Restaurant Platform</b><span>Reservations, QR ordering &amp; reviews</span></div>
+        </article>
+
+        <article class="work-card reveal" data-cat="saas">
+          <div class="wc-visual">
+            <div class="wc-thumb" style="background: linear-gradient(135deg,#14091c,#2b1040 70%,#3d1a5e)">
+              <div class="mini-crm"><i></i><i></i><i></i><i></i></div>
+            </div>
+            <div class="wc-overlay">
+              <span class="wc-tag">EstateCore CRM</span>
+              <span class="wc-tech">Node.js · PostgreSQL · Docker</span>
+              <span class="wc-meta"><i>2023</i> · <i>UAE</i> · <i>Vertex</i></span>
+              <a href="#contact" class="wc-link">View Project →</a>
+            </div>
+          </div>
+          <div class="wc-foot"><b>Real Estate CRM</b><span>Listings, leads &amp; pipeline automation</span></div>
+        </article>
+
+        <article class="work-card reveal" data-cat="web">
+          <div class="wc-visual">
+            <div class="wc-thumb" style="background: linear-gradient(135deg,#050d15,#0a2a45 70%,#0e3b63)">
+              <div class="mini-fin"><i></i><i></i><i></i></div>
+            </div>
+            <div class="wc-overlay">
+              <span class="wc-tag">FinScale</span>
+              <span class="wc-tech">Django · Stripe · React</span>
+              <span class="wc-meta"><i>2024</i> · <i>SG</i> · <i>SecurBank</i></span>
+              <a href="#contact" class="wc-link">View Project →</a>
+            </div>
+          </div>
+          <div class="wc-foot"><b>Fintech Website</b><span>Investment platform &amp; risk tools</span></div>
+        </article>
+
+        <article class="work-card reveal" data-cat="ai">
+          <div class="wc-visual">
+            <div class="wc-thumb" style="background: linear-gradient(135deg,#0b1110,#10342a 60%,#14503e)">
+              <div class="mini-ai"><span>AI</span><i></i><i></i></div>
+            </div>
+            <div class="wc-overlay">
+              <span class="wc-tag">AssistIQ</span>
+              <span class="wc-tech">OpenAI · Python · Supabase</span>
+              <span class="wc-meta"><i>2025</i> · <i>DE</i> · <i>Echo</i></span>
+              <a href="#contact" class="wc-link">View Project →</a>
+            </div>
+          </div>
+          <div class="wc-foot"><b>AI Chatbot</b><span>Support copilot for SaaS teams</span></div>
+        </article>
+
+        <article class="work-card reveal" data-cat="web">
+          <div class="wc-visual">
+            <div class="wc-thumb" style="background: linear-gradient(135deg,#16110a,#402d14 70%,#5e3d0a)">
+              <div class="mini-port"><i></i><i></i><i></i></div>
+            </div>
+            <div class="wc-overlay">
+              <span class="wc-tag">Nebula Studio</span>
+              <span class="wc-tech">Next.js · GSAP-free · CMS</span>
+              <span class="wc-meta"><i>2024</i> · <i>FR</i> · <i>Curio</i></span>
+              <a href="#contact" class="wc-link">View Project →</a>
+            </div>
+          </div>
+          <div class="wc-foot"><b>Portfolio Website</b><span>2D/3D agency showcase</span></div>
+        </article>
+
+        <article class="work-card reveal" data-cat="app">
+          <div class="wc-visual">
+            <div class="wc-thumb" style="background: linear-gradient(135deg,#071018,#0f2433 60%,#1a4a5e)">
+              <div class="mini-erp"><i></i><i></i><i></i><i></i><i></i></div>
+            </div>
+            <div class="wc-overlay">
+              <span class="wc-tag">ManuFlow ERP</span>
+              <span class="wc-tech">Laravel · Vue · MySQL</span>
+              <span class="wc-meta"><i>2022</i> · <i>BR</i> · <i>Pinnacle</i></span>
+              <a href="#contact" class="wc-link">View Project →</a>
+            </div>
+          </div>
+          <div class="wc-foot"><b>ERP System</b><span>Inventory, orders &amp; production</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 6. WHY CHOOSE US ================= -->
+  <section class="why-section section" id="why">
+    <div class="container why-container">
+      <div class="section-head left section-reveal">
+        <span class="eyebrow">Why Dualcore</span>
+        <h2>The standard, <span class="grad-c">upheld.</span></h2>
+      </div>
+
+      <div class="roadmap" id="roadmap">
+        <div class="rm-track section-reveal"><i id="rmFill"></i></div>
+        <div class="rm-shape rm-s1 section-reveal"></div>
+        <div class="rm-shape rm-s2 section-reveal"></div>
+        <div class="rm-shape rm-s3 section-reveal"></div>
+
+        <article class="rm-item section-reveal" data-row="1">
+          <span class="rm-node"><i>01</i></span>
+          <div class="rm-panel">
+            <div class="rm-num">01</div>
+            <div class="rm-line"></div>
+            <b>Pixel Perfect Design</b>
+            <p>Every interface is designed to the pixel — obsessive spacing, typography and detail.</p>
+          </div>
+        </article>
+
+        <article class="rm-item section-reveal" data-row="2">
+          <span class="rm-node"><i>02</i></span>
+          <div class="rm-panel">
+            <div class="rm-num">02</div>
+            <div class="rm-line"></div>
+            <b>Lightning Fast Performance</b>
+            <p>Sub-second loads, 90+ Lighthouse scores and obsessive performance budgets.</p>
+          </div>
+        </article>
+
+        <article class="rm-item section-reveal" data-row="3">
+          <span class="rm-node"><i>03</i></span>
+          <div class="rm-panel">
+            <div class="rm-num">03</div>
+            <div class="rm-line"></div>
+            <b>SEO Optimized</b>
+            <p>Semantic, structured and technical SEO baked in from the very first commit.</p>
+          </div>
+        </article>
+
+        <article class="rm-item section-reveal" data-row="4">
+          <span class="rm-node"><i>04</i></span>
+          <div class="rm-panel">
+            <div class="rm-num">04</div>
+            <div class="rm-line"></div>
+            <b>Fully Responsive</b>
+            <p>Flawless on every viewport — phones, tablets, laptops and 4K screens.</p>
+          </div>
+        </article>
+
+        <article class="rm-item section-reveal" data-row="5">
+          <span class="rm-node"><i>05</i></span>
+          <div class="rm-panel">
+            <div class="rm-num">05</div>
+            <div class="rm-line"></div>
+            <b>Clean Code</b>
+            <p>Readable, documented, handcrafted code that any engineer can inherit fearlessly.</p>
+          </div>
+        </article>
+
+        <article class="rm-item section-reveal" data-row="6">
+          <span class="rm-node"><i>06</i></span>
+          <div class="rm-panel">
+            <div class="rm-num">06</div>
+            <div class="rm-line"></div>
+            <b>Scalable Architecture</b>
+            <p>Built to grow from 10 users to 10 million without a rewrite.</p>
+          </div>
+        </article>
+
+        <article class="rm-item section-reveal" data-row="7">
+          <span class="rm-node"><i>07</i></span>
+          <div class="rm-panel">
+            <div class="rm-num">07</div>
+            <div class="rm-line"></div>
+            <b>Modern UI &amp; Micro-interactions</b>
+            <p>Delightful, motion-forward interfaces that users describe as "premium".</p>
+          </div>
+        </article>
+
+        <article class="rm-item section-reveal" data-row="8">
+          <span class="rm-node"><i>08</i></span>
+          <div class="rm-panel">
+            <div class="rm-num">08</div>
+            <div class="rm-line"></div>
+            <b>Secure Development</b>
+            <p>OWASP-aware, hardened stacks, audit-ready infrastructure out of the box.</p>
+          </div>
+        </article>
+
+        <article class="rm-item section-reveal" data-row="9">
+          <span class="rm-node"><i>09</i></span>
+          <div class="rm-panel">
+            <div class="rm-num">09</div>
+            <div class="rm-line"></div>
+            <b>Premium Support</b>
+            <p>Dedicated Slack channels, 24/7 monitoring and white-glove maintenance.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 7. TECH STACK ================= -->
+  <section class="stack-section section" id="stack">
+    <div class="container">
+      <div class="section-head center section-reveal">
+        <span class="eyebrow">Technology Stack</span>
+        <h2>Weapons of <span class="grad-text">choice</span></h2>
+      </div>
+
+      <div class="orbit-wrap section-reveal" id="orbitWrap">
+        <div class="orbit-core" data-tilt>
+          <div class="oc-logo">◆</div>
+          <b>Dualcore</b>
+          <span>Softworks</span>
+        </div>
+        <div class="orbit orbit-1"><i class="orb o1" data-tech="HTML Markup" data-level="Expert"></i><i class="orb o2" data-tech="CSS3" data-level="Expert"></i><i class="orb o3" data-tech="JavaScript" data-level="Expert"></i><i class="orb o4" data-tech="PHP" data-level="Advanced"></i><i class="orb o5" data-tech="Laravel" data-level="Advanced"></i><i class="orb o6" data-tech="Node.js" data-level="Advanced"></i></div>
+        <div class="orbit orbit-2"><i class="orb o1" data-tech="React" data-level="Advanced"></i><i class="orb o2" data-tech="Next.js" data-level="Advanced"></i><i class="orb o3" data-tech="Python" data-level="Advanced"></i><i class="orb o4" data-tech="Django" data-level="Advanced"></i><i class="orb o5" data-tech="Supabase" data-level="Advanced"></i><i class="orb o6" data-tech="Firebase" data-level="Advanced"></i></div>
+        <div class="orbit orbit-3"><i class="orb o1" data-tech="MySQL" data-level="Advanced"></i><i class="orb o2" data-tech="PostgreSQL" data-level="Advanced"></i><i class="orb o3" data-tech="MongoDB" data-level="Advanced"></i><i class="orb o4" data-tech="Git &amp; CI/CD" data-level="Expert"></i><i class="orb o5" data-tech="Docker" data-level="Advanced"></i><i class="orb o6" data-tech="REST APIs" data-level="Expert"></i></div>
+
+        <div class="orbit-tooltip" id="orbitTooltip">
+          <b id="otTech">JavaScript</b>
+          <span id="otLevel">Expert</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 8. PROCESS ================= -->
+  <section class="process-section section" id="process">
+    <div class="container">
+      <div class="section-head center section-reveal">
+        <span class="eyebrow">Our Process</span>
+        <h2>Eight steps, <span class="grad-text">zero chaos</span></h2>
+      </div>
+
+      <div class="process-track section-reveal" id="processTrack">
+        <div class="pt-line" aria-hidden="true"><i class="pt-fill" id="ptFill"></i></div>
+
+        <article class="pt-step" data-step="0">
+          <span class="pt-ico"><svg viewBox="0 0 24 24"><path d="M4 20h16M6 16l6-12 6 12M9 12h6"/></svg></span>
+          <b>01 Discovery</b>
+          <p>Goals, users and definition of done.</p>
+        </article>
+        <article class="pt-step" data-step="1">
+          <span class="pt-ico"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M9 19v-6h6v6"/></svg></span>
+          <b>02 Research</b>
+          <p>Markets, competitors and insight.</p>
+        </article>
+        <article class="pt-step" data-step="2">
+          <span class="pt-ico"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8l6 6m0-6L8 14"/></svg></span>
+          <b>03 Wireframes</b>
+          <p>Structure first, then design.</p>
+        </article>
+        <article class="pt-step" data-step="3">
+          <span class="pt-ico"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M8 16V8M13 16v-5M18 16v-8"/></svg></span>
+          <b>04 UI Design</b>
+          <p>Pixel-perfect premium screens.</p>
+        </article>
+        <article class="pt-step" data-step="4">
+          <span class="pt-ico"><svg viewBox="0 0 24 24"><path d="M16 17l5-5-5-5M8 7L3 12l5 5"/><path d="M14 4l-4 16"/></svg></span>
+          <b>05 Development</b>
+          <p>Clean, scalable engineering.</p>
+        </article>
+        <article class="pt-step" data-step="5">
+          <span class="pt-ico"><svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg></span>
+          <b>06 Testing</b>
+          <p>QA, performance and security.</p>
+        </article>
+        <article class="pt-step" data-step="6">
+          <span class="pt-ico"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/></svg></span>
+          <b>07 Launch</b>
+          <p>Ship, monitor, celebrate.</p>
+        </article>
+        <article class="pt-step" data-step="7">
+          <span class="pt-ico"><svg viewBox="0 0 24 24"><path d="M12 21a9 9 0 110-18 9 9 0 010 18zm0-14v5M12 17h.01"/></svg></span>
+          <b>08 Support</b>
+          <p>White-glove care forever.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 9. STATISTICS ================= -->
+  <section class="stats-section section" id="stats" aria-label="Our numbers">
+    <div class="container">
+      <div class="section-head center section-reveal"><span class="eyebrow">By the numbers</span></div>
+      <div class="stats-wrap" id="statsGrid">
+        <div class="stat-cell section-reveal">
+          <span class="stat-num"><b class="count" data-count="500" data-suffix="+">0</b></span>
+          <span class="stat-label">Projects Delivered</span>
+          <i class="stat-tick" data-y="56%"></i>
+        </div>
+        <div class="stat-cell section-reveal">
+          <span class="stat-num"><b class="count" data-count="150" data-suffix="+">0</b></span>
+          <span class="stat-label">Happy Clients</span>
+        </div>
+        <div class="stat-cell section-reveal stat-big" data-p="99">
+          <span class="stat-num"><b class="count" data-count="99" data-suffix="%">0</b></span>
+          <span class="stat-label">Client Satisfaction</span>
+          <div class="stat-ring" style="--p:99"><i></i></div>
+        </div>
+        <div class="stat-cell section-reveal">
+          <span class="stat-num"><b class="count" data-count="25" data-suffix="+">0</b></span>
+          <span class="stat-label">Countries Served</span>
+        </div>
+        <div class="stat-cell section-reveal">
+          <span class="stat-num"><b class="count" data-count="10" data-suffix="M+">0</b></span>
+          <span class="stat-label">Lines of Code</span>
+        </div>
+        <div class="stat-cell section-reveal">
+          <span class="stat-num"><b class="count" data-count="8" data-suffix="+">0</b></span>
+          <span class="stat-label">Years Experience</span>
+          <span class="stat-glow" data-parallax="14"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 10. TESTIMONIALS ================= -->
+  <section class="testi-section section" id="testimonials">
+    <div class="container">
+      <div class="testi-decor" aria-hidden="true"><span class="big-quote">"</span></div>
+      <div class="section-head center section-reveal">
+        <span class="eyebrow">Testimonials</span>
+        <h2>Loved by teams that <span class="grad-c">ship</span></h2>
+      </div>
+
+      <div class="slider section-reveal" id="slider">
+        <div class="slider-track" id="sliderTrack">
+
+          <div class="t-card t-active">
+            <div class="t-head">
+              <span class="t-avatar av1">SR</span>
+              <div><b>Sarah Reynolds</b><span>CTO · NovaTech</span></div>
+              <span class="t-stars">★★★★★</span>
+            </div>
+            <p class="t-quote">"Dualcore took our messy MVP and rebuilt it into a platform our investors literally applauded. Engineers who think like designers. Rare, rare combo."</p>
+          </div>
+
+          <div class="t-card">
+            <div class="t-head">
+              <span class="t-avatar av2">OA</span>
+              <div><b>Omar Al-Rashid</b><span>Founder · Vertex Labs</span></div>
+              <span class="t-stars">★★★★★</span>
+            </div>
+            <p class="t-quote">"From roadmap to launch in 11 weeks. The CRM they built now runs our entire sales org. Premium code, premium communication, premium results."</p>
+          </div>
+
+          <div class="t-card">
+            <div class="t-head">
+              <span class="t-avatar av3">YL</span>
+              <div><b>Yuki Tanaka</b><span>Product Lead · Echo</span></div>
+              <span class="t-stars">★★★★★</span>
+            </div>
+            <p class="t-quote">"We brought a rough AI idea to the table. They gave it architecture, UX and polish. Our churn dropped 40% after launch. World-class studio."</p>
+          </div>
+
+          <div class="t-card">
+            <div class="t-head">
+              <span class="t-avatar av4">DM</span>
+              <div><b>Daniel Moreira</b><span>GM · Pinnacle Group</span></div>
+              <span class="t-stars">★★★★★</span>
+            </div>
+            <p class="t-quote">"The ERP migration we feared for a year was done in weeks. Zero downtime, zero drama, and user training included. These people are reliable to the core."</p>
+          </div>
+        </div>
+
+        <div class="slider-controls">
+          <button class="s-arrow" id="sliderPrev" aria-label="Previous testimonial">←</button>
+          <div class="slider-dots" id="sliderDots"></div>
+          <button class="s-arrow" id="sliderNext" aria-label="Next testimonial">→</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 11. INTERACTIVE SHOWCASE ================= -->
+  <section class="showcase-section section" id="showcase">
+    <div class="container">
+      <div class="section-head center section-reveal">
+        <span class="eyebrow">Interactive Showcase</span>
+        <h2>One code base.<br><span class="grad-text">Every surface.</span></h2>
+      </div>
+
+      <div class="showcase-wrap section-reveal" id="showcaseWrap">
+        <div class="spo-tabs">
+          <button class="spo-tab active" data-preview="landing">Landing Page</button>
+          <button class="spo-tab" data-preview="dashboard">Dashboard</button>
+          <button class="spo-tab" data-preview="mobile">Mobile App</button>
+          <button class="spo-tab" data-preview="crm">CRM</button>
+          <button class="spo-tab" data-preview="saas">SaaS</button>
+          <button class="spo-tab" data-preview="portfolio">Portfolio</button>
+          <button class="spo-tab" data-preview="ecommerce">E-commerce</button>
+        </div>
+
+        <div class="spo-laptop">
+          <div class="spo-cam"></div>
+          <div class="spo-screen">
+            <div class="spo-slides" id="spoSlides">
+
+              <div class="spo-slide spo-active" data-preview="landing">
+                <div class="pv pv-landing">
+                  <div class="pv-nav"><i></i><i></i><i></i><i></i></div>
+                  <h3>Launch in days</h3>
+                  <p>Premium websites engineered to brand standards.</p>
+                  <div class="pv-btn"></div>
+                  <div class="pv-hero"><i></i><i></i><i></i></div>
+                </div>
+              </div>
+
+              <div class="spo-slide" data-preview="dashboard">
+                <div class="pv pv-dash">
+                  <div class="dash-bars2">
+                    <span style="--h:40%"></span><span style="--h:62%"></span><span style="--h:50%"></span>
+                    <span style="--h:78%"></span><span style="--h:90%"></span><span style="--h:68%"></span>
+                    <span style="--h:84%"></span><span style="--h:96%"></span>
+                  </div>
+                  <div class="dash-cards2"><i></i><i></i></div>
+                </div>
+              </div>
+
+              <div class="spo-slide" data-preview="mobile">
+                <div class="pv pv-mobile">
+                  <div class="phone-frame"><i></i><i></i><i></i><i></i></div>
+                </div>
+              </div>
+
+              <div class="spo-slide" data-preview="crm">
+                <div class="pv pv-crm">
+                  <div class="crm-grid"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                  <div class="crm-stats"><i></i><i></i></div>
+                </div>
+              </div>
+
+              <div class="spo-slide" data-preview="saas">
+                <div class="pv pv-saas">
+                  <div class="saas-billing"><i></i><i></i><i></i></div>
+                  <div class="saas-table"><i></i><i></i><i></i></div>
+                </div>
+              </div>
+
+              <div class="spo-slide" data-preview="portfolio">
+                <div class="pv pv-portfolio">
+                  <div class="port-grid"><i></i><i></i><i></i><i></i></div>
+                </div>
+              </div>
+
+              <div class="spo-slide" data-preview="ecommerce">
+                <div class="pv pv-shop">
+                  <div class="shop-row"><i></i><i></i><i></i></div>
+                  <div class="shop-cart"><i></i></div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="spo-base"></div>
+        </div>
+
+        <div class="spo-panel" id="spoPanel">
+          <div class="spo-panel-desc">
+            <b id="spoTitle">Landing Page</b>
+            <p id="spoText">Conversion-first marketing sites with cinematic motion and premium typography.</p>
+            <span class="spo-arrow">→ Next preview</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 12. PRICING ================= -->
+  <section class="pricing-section section" id="pricing">
+    <div class="container">
+      <div class="section-head center section-reveal">
+        <span class="eyebrow">Pricing</span>
+        <h2>Plans that <span class="grad-p">pay</span> for themselves</h2>
+        <p class="section-desc">Transparent engagement models. No hidden invoices, no surprise fees.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <article class="plan reveal section-reveal">
+          <div class="plan-head">
+            <span class="plan-name">Starter</span>
+            <div class="plan-price"><b>$2,500</b><span>/ project</span></div>
+          </div>
+          <ul class="plan-feats">
+            <li>Custom marketing website</li>
+            <li>Up to 6 pages</li>
+            <li>Responsive &amp; SEO-ready</li>
+            <li>Contact form &amp; CMS</li>
+            <li>30 days post-launch support</li>
+          </ul>
+          <a href="start-project.html" class="btn btn-ghost btn-block magnetic" data-ripple>Start a Project</a>
+        </article>
+
+        <article class="plan-card popular section-reveal">
+          <span class="plan-badge">★ Most Popular</span>
+          <div class="plan-glow"></div>
+          <div class="plan-head">
+            <span class="plan-name">Business</span>
+            <div class="plan-price"><b>$7,500</b><span>/ project</span></div>
+          </div>
+          <ul class="plan-feats">
+            <li>Everything in Starter</li>
+            <li>Web app or SaaS MVP</li>
+            <li>Custom dashboard &amp; auth</li>
+            <li>API integrations</li>
+            <li>Dedicated project manager</li>
+            <li>90 days premium support</li>
+          </ul>
+          <a href="start-project.html" class="btn btn-primary btn-block magnetic" data-ripple>Start a Project</a>
+        </article>
+
+        <article class="plan-card section-reveal">
+          <div class="plan-head">
+            <span class="plan-name">Enterprise</span>
+            <div class="plan-price"><b>Custom</b><span>/ dedicated team</span></div>
+          </div>
+          <ul class="plan-feats">
+            <li>Dedicated engineering crew</li>
+            <li>Complex &amp; AI systems</li>
+            <li>Cloud &amp; DevOps</li>
+            <li>SLA &amp; 24/7 monitoring</li>
+            <li>On-site workshops</li>
+            <li>Unlimited priority support</li>
+          </ul>
+          <a href="#contact" class="btn btn-ghost btn-block magnetic" data-ripple>Book a Call</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 13. INDUSTRIES ================= -->
+  <section class="industries-section section" id="industries">
+    <div class="container">
+      <div class="section-head center section-reveal">
+        <span class="eyebrow">Industries</span>
+        <h2>Deep roots in <span class="grad-c">every sector</span></h2>
+      </div>
+
+      <div class="hex-wrap section-reveal">
+        <div class="hex-cell big">
+          <div class="hex-shape" data-name="Healthcare">
+            <svg viewBox="0 0 100 115"><polygon points="50,2 93,29 93,86 50,113 7,86 7,29"/></svg>
+            <span class="hex-content"><i>&#10010;</i><b>Healthcare</b></span>
+          </div>
+        </div>
+        <div class="hex-cell"><span class="hex-shape" data-name="Education"><span class="hex-content"><i>◩</i><b>Education</b></span></span></div>
+        <div class="hex-cell"><span class="hex-shape" data-name="Finance"><span class="hex-content"><i>☌</i><b>Finance</b></span></span></div>
+        <div class="hex-cell"><span class="hex-shape" data-name="Real Estate"><span class="hex-content"><i>▣</i><b>Real Estate</b></span></span></div>
+        <div class="hex-cell"><span class="hex-shape" data-name="Construction"><span class="hex-content"><i>⌗</i><b>Construction</b></span></span></div>
+        <div class="hex-cell"><span class="hex-shape" data-name="Retail"><span class="hex-content"><i>▥</i><b>Retail</b></span></span></div>
+        <div class="hex-cell"><span class="hex-shape" data-name="Logistics"><span class="hex-content"><i>⇄</i><b>Logistics</b></span></span></div>
+        <div class="hex-cell"><span class="hex-shape" data-name="Travel"><span class="hex-content"><i>✈</i><b>Travel</b></span></span></div>
+        <div class="hex-cell"><span class="hex-shape" data-name="Restaurants"><span class="hex-content"><i>☕</i><b>Restaurants</b></span></span></div>
+        <div class="hex-cell"><span class="hex-shape" data-name="Manufacturing"><span class="hex-content"><i>⚙</i><b>Manufacturing</b></span></span></div>
+        <div class="hex-cell"><span class="hex-shape" data-name="Tech"><span class="hex-content"><i>◆</i><b>Technology</b></span></span></div>
+        <div class="hex-cell"><span class="hex-shape" data-name="Startups"><span class="hex-content"><i>◉</i><b>Startups</b></span></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 14. TEAM ================= -->
+  <section class="team-section section" id="team">
+    <div class="container">
+      <div class="section-head center section-reveal">
+        <span class="eyebrow">The Crew</span>
+        <h2>Small team.<br><span class="grad-text">Outsized output.</span></h2>
+      </div>
+
+      <div class="team-stack">
+        <article class="tm-card section-reveal" data-team="0">
+          <div class="tm-portrait p1"><span class="tm-initials">AM</span><div class="tm-halo"></div></div>
+          <div class="tm-info">
+            <b>Alex Morgan</b><span>Founder · Full-Stack</span>
+            <div class="tm-skills"><i>Laravel</i><i>Vue</i><i>Postgres</i></div>
+            <span class="tm-exp">10+ yrs engineering</span>
+          </div>
+        </article>
+
+        <article class="tm-card section-reveal" data-team="1">
+          <div style="--i:1"><div class="tm-portrait p2"><span class="tm-initial">NK</span><div class="tm-halo"></div></div>
+          <div class="tm-info"><b>Nina Kovács</b><span>Design Director</span>
+            <div class="tm-skills"><i>UI/UX</i><i>Design Systems</i><i>Motion</i></div>
+            <span class="tm-exp">8+ yrs product design</span>
+          </div></div>
+        </article>
+
+        <article class="tm-card section-reveal" data-team="2">
+          <div class="tm-portrait p3"><span class="tm-initial">RJ</span><div class="tm-halo"></div></div>
+          <div class="tm-info"><b>Rahul Jain</b><span>AI Engineer</span>
+            <div class="tm-skills"><i>Python</i><i>LLMs</i><i>Django</i></div>
+            <span class="tm-exp">6+ yrs applied AI</span>
+          </div>
+        </article>
+
+        <article class="tm-card section-reveal" data-team="3">
+          <div class="tm-portrait p4"><span class="tm-initial">ES</span><div class="tm-halo"></div></div>
+          <div class="tm-info"><b>Elena Soto</b><span>Engineering Lead</span>
+            <div class="tm-skills"><i>Node</i><i>React</i><i>AWS</i></div>
+            <span class="tm-exp">9+ yrs platform eng</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 15. AWARDS ================= -->
+  <section class="awards-section section" id="awards">
+    <div class="container">
+      <div class="section-head center section-reveal">
+        <span class="eyebrow">Recognition</span>
+        <h2>Awards &amp; <span class="grad-c">certifications</span></h2>
+      </div>
+
+      <div class="award-wall">
+        <div class="award-badge reveal-badge section-reveal"><span class="ab-ico">g</span><b>Google</b><i>Partner Program</i></div>
+        <div class="award-badge section-reveal"><span class="ab-ico">Ⓜ</span><b>Microsoft</b><i>Gold Partner</i></div>
+        <div class="award-badge section-reveal"><span class="ab-ico">▲</span><b>AWS</b><i>Advanced Tier</i></div>
+        <div class="award-badge section-reveal"><span class="ab-ico">f</span><b>Meta</b><i>Business Partner</i></div>
+        <div class="award-badge section-reveal"><span class="ab-ico">★</span><b>Top Rated</b><i>Upwork Partner</i></div>
+        <div class="award-badge section-reveal"><span class="ab-ico">&lt;/&gt;</span><b>Open Source</b><i>Maintainer</i></div>
+        <div class="award-badge section-reveal"><span class="ab-ico">◆</span><b>GitHub</b><i>Flagship</i></div>
+        <div class="award-badge section-reveal"><span class="ab-ico">D</span><b>DevOps</b><i>Certified</i></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 16. FAQ ================= -->
+  <section class="faq-section section" id="faq">
+    <div class="container faq-container">
+      <div class="section-head side section-reveal">
+        <div>
+          <span class="eyebrow">FAQ</span>
+          <h2>Questions, <span class="grad-text">answered</span></h2>
+        </div>
+        <p class="section-sub">Everything clients ask before building with us. Still curious? <a href="#contact" class="link-accent">Talk to us →</a></p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item section-reveal open">
+          <button class="faq-q" aria-expanded="true">
+            What is your typical project timeline?
+            <span class="faq-ico"></span>
+          </button>
+          <div class="faq-a"><p>A marketing website ships in 2–4 weeks, a web app in 6–12 weeks, and SaaS/AI platforms in 8–16 weeks. We agree on a milestone plan before code begins so you always know exactly where you stand.</p></div>
+        </div>
+        <div class="faq-item section-reveal">
+          <button class="faq-q" aria-expanded="false">
+            How does pricing actually work?
+            <span class="faq-ico"></span>
+          </button>
+          <div class="faq-a"><p>We offer fixed-scope project pricing, monthly retainers and dedicated fractional teams. You'll get a transparent quote after discovery — no hourly creep, no surprise invoices.</p></div>
+        </div>
+        <div class="faq-item section-reveal">
+          <button class="faq-q" aria-expanded="false">
+            Which technologies do you use?
+            <span class="faq-ico"></span>
+          </button>
+          <div class="faq-a"><p>We keep a focused, battle-tested stack: Laravel, Node, React, Next.js, Python/Django, Supabase, Postgres and Docker. We pick the right tool for your product — never the coolest one.</p></div>
+        </div>
+        <div class="faq-item section-reveal">
+          <button class="faq-q" aria-expanded="false">
+            Do you provide ongoing support?
+            <span class="faq-ico"></span>
+          </button>
+          <div class="faq-a"><p>Yes. Every engagement includes a post-launch care window, and we offer 12/7 monitoring, updates, backups and unlimited SLA-backed maintenance on request.</p></div>
+        </div>
+        <div class="faq-item section-reveal">
+          <button class="faq-q" aria-expanded="false">
+            Will I own the code and the data?
+            <span class="faq-ico"></span>
+          </button>
+          <div class="faq-a"><p>100%. You own the code, the infrastructure and all data from day one. Deployments are made to your own accounts. We never lock clients in.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 17. CONTACT ================= -->
+  <section class="contact-section section" id="contact">
+    <div class="container">
+      <div class="section-head center section-reveal">
+        <span class="eyebrow">Contact</span>
+        <h2>Let's talk about <span class="grad-c">your project</span></h2>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info section-reveal">
+          <div class="ci-card">
+            <span class="ci-ico"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1114 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+            <div><b>Headquarters</b><p>Innovation District, Road 27<br>Business Bay, Dubai, UAE</p></div>
+          </div>
+          <div class="ci-card">
+            <span class="ci-ico"><svg viewBox="0 0 24 24"><path d="M4 5l7 6 7-6"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg></span>
+            <div><b>Email</b><p>hello@dualcore.dev</p><small>· press@dualcore.dev</small></div>
+          </div>
+          <div class="ci-card">
+            <span class="ci-ico"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-3 2a12 12 0 005 5l2-3 5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg></span>
+            <div><b>Phone</b><p>+1 (555) 014-4800</p><small>Mon–Fri · 9:00–19:00 GMT</small></div>
+          </div>
+          <div class="ci-availability">
+            <div class="av-dot"><span></span></div>
+            <div><b>Now hiring &amp; booking</b><p>Sending proposals for Q3 2026. Average reply time: <u>2 hours</u>.</p></div>
+          </div>
+          <div class="map-card" aria-hidden="true">
+            <div class="map-grid"></div>
+            <div class="map-pin"><i></i></div>
+            <span class="map-tag">Dubai HQ</span>
+          </div>
+        </div>
+
+        <form class="contact-form section-reveal" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="field">
+              <input type="text" id="fname" name="name" placeholder=" " required>
+              <label for="fname">Full name*</label>
+              <span class="field-bar"></span>
+              <span class="field-err">Please enter your name.</span>
+            </div>
+            <div class="field">
+              <input type="email" id="fmail" name="email" placeholder=" " required>
+              <label for="fmail">Work email*</label>
+              <span class="field-bar"></span>
+              <span class="field-err">Enter a valid email.</span>
+            </div>
+          </div>
+          <div class="field field--msg">
+            <textarea name="message" id="fmsg" rows="5" placeholder=" " required></textarea>
+            <label for="fmsg">Your message*</label>
+            <span class="field-bar"></span>
+            <span class="field-err">Please write a short message.</span>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block submit-btn magnetic" id="submitBtn" data-ripple>
+            <span class="submit-label">Send Message <span class="btn-arrow">→</span></span>
+            <span class="submit-loading"><i></i><i></i><i></i></span>
+          </button>
+          <p class="form-status" id="formStatus" role="status"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 18. CTA ================= -->
+  <section class="cta-section section" id="cta">
+    <div class="cta-glow" aria-hidden="true">
+      <div class="cta-orb c1" data-parallax="30"></div>
+      <div class="cta-orb c2" data-parallax="-40"></div>
+    </div>
+    <div class="container cta-inner" data-tilt>
+      <div class="cta-content section-reveal">
+        <span class="cta-eyebrow">One step away</span>
+        <h2 class="cta-title">Let's Build Something<br><span class="grad-text">Extraordinary</span> Together</h2>
+        <p class="cta-sub">Tell us about the product you've been imagining. We'll reply within two hours with a plan and a timeline.</p>
+        <div class="cta-actions">
+          <a href="#contact" class="btn btn-primary btn-lg magnetic" data-ripple>Book a Discovery Call</a>
+          <a href="start-project.html" class="btn btn-glass btn-lg magnetic" data-ripple>Start Your Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 19. FOOTER ================= -->
+  <footer class="footer" id="footer">
+    <div class="foot-glow" aria-hidden="true"></div>
+    <div class="container">
+      <div class="foot-top">
+        <div class="foot-brand">
+          <a href="#home" class="brand brand-foot" aria-label="Dualcore home">
+            <span class="brand-mark">
+              <svg viewBox="0 0 64 64" width="40" height="40"><defs><linearGradient id="bf-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0D7377"/><stop offset="1" stop-color="#0D7377"/></linearGradient></defs><rect width="64" height="64" rx="16" fill="#323232"/><path d="M17 48V22l15 22V22" stroke="url(#bf-g)" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </a>
+          <p class="foot-tag">Engineering the Future,<br>One Product at a Time.</p>
+          <div class="foot-social">
+            <a href="#" aria-label="X / Twitter"><svg viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
+            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M8 8v8M8 11a2 2 0 100-4 2 2 0 000 4zM4 8h4M12 16v-4a3 3 0 016 0v4"/></svg></a>
+            <a href="#" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M9 19c-4 1.5-4-2-5.5-3M15 21v-3.8a3 3 0 00-.8-2.3c2.7-.3 5.3-1.3 5.3-5.5a4.3 4.3 0 00-1.2-3A4 4 0 0018 3.2s-1-.3-3.2 1.2a10 10 0 00-5.6 0C7 2.9 6 3.2 6 3.2a4 4 0 00-1.3 3c-2.8.7-3-2-3-2A4.3 4.3 0 00.5 8c0 4.2 2.6 5.1 5.3 5.5a3 3 0 00-.8 2.3V19"/></svg></a>
+            <a href="#" aria-label="Dribbble"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 016 18M12 3a14 14 0 00-6 18M12 3c10 6 0 12-10 6"/></svg></a>
+          </div>
+        </div>
+
+        <nav class="foot-col" aria-label="Company">
+          <b>Company</b>
+          <a href="#about">About</a>
+          <a href="#team">Team</a>
+          <a href="#awards">Awards</a>
+          <a href="#process">Process</a>
+          <a href="#why">Why Us</a>
+        </nav>
+        <nav class="foot-col" aria-label="Services">
+          <b>Services</b>
+          <a href="#services">Web Development</a>
+          <a href="#services">SaaS Products</a>
+          <a href="#services">AI Applications</a>
+          <a href="#services">Mobile Apps</a>
+          <a href="#services">UI/UX Design</a>
+        </nav>
+        <nav class="foot-col" aria-label="Projects">
+          <b>Projects</b>
+          <a href="#work">Featured Work</a>
+          <a href="#work">Case Studies</a>
+          <a href="#showcase">Showcase</a>
+          <a href="#industries">Industries</a>
+        </nav>
+        <nav class="foot-col" aria-label="Resources">
+          <b>Resources</b>
+          <a href="#faq">FAQ</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#stack">Technology</a>
+          <a href="#contact">Support</a>
+          <a href="#contact">Blog</a>
+        </nav>
+        <div class="foot-news">
+          <b>Newsletter</b>
+          <p>Engineering notes, product teardowns and launch case studies. Once a month.</p>
+          <form class="news-form" id="newsForm">
+            <input type="email" placeholder="you@company.com" aria-label="Email address" required>
+            <button type="submit" aria-label="Subscribe">→</button>
+          </form>
+          <p class="news-msg" id="newsMsg"></p>
+        </div>
+      </div>
+
+      <div class="foot-bottom">
+        <p>© <span id="year">2026</span> Dualcore Softworks. All rights reserved.</p>
+        <div class="foot-links">
+          <a href="#">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="#">Cookies</a>
+        </div>
+        <p class="foot-made">Crafted with <span class="heart">◆</span> in Dubai &amp; Berlin</p>
+      </div>
+    </div>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top"><span>↑</span></button>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
