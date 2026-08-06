@@ -55,6 +55,7 @@
     transform: none;
     width: 300px;
   }
+  .tm-inner { min-height: 480px; }
 
   .award-wall { grid-template-columns: repeat(2, 1fr); }
 
@@ -149,7 +150,11 @@
 
   .team-stack { gap: 20px; }
   .tm-card, .tm-card:nth-child(1), .tm-card:nth-child(2) { width: min(100%, 320px); }
-  .tm-portrait { aspect-ratio: 4 / 3.6; }
+  .tm-inner { min-height: 500px; }
+  .tm-back { padding: 20px 16px; gap: 9px; }
+  .tm-bio { font-size: 12.5px; }
+  .tm-back-name { font-size: 19px; }
+  .tm-tags i { font-size: 11px; padding: 4px 9px; }
 
   .faq-q { padding: 20px 22px; font-size: 15px; }
 
