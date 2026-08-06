@@ -34,7 +34,7 @@
       if (userChip) {
         if (loggedIn) {
           const email = (auth.user.email || 'Account').split('@')[0];
-          userChip.style.display = '';
+          userChip.style.display = 'flex';
           userChip.innerHTML = '<span class="au-ico">' + email.charAt(0).toUpperCase() + '</span><b>' +
             email + '</b><i>·</i><em>' + auth.user.email + '</em>';
         } else {
@@ -47,12 +47,12 @@
             (auth.user.email || 'U').split('@')[0];
           const ico = profileLink.querySelector('.au-ico');
           if (ico) ico.textContent = name.charAt(0).toUpperCase();
-          profileLink.style.display = '';
+          profileLink.style.display = 'flex';
         } else {
           profileLink.style.display = 'none';
         }
       }
-      if (guestCta) guestCta.style.display = loggedIn ? 'none' : '';
+      if (guestCta) guestCta.style.display = loggedIn ? 'none' : 'inline-flex';
       if (logoutBtn) logoutBtn.style.display = loggedIn ? '' : 'none';
       if (myProjectsBtn) myProjectsBtn.style.display = loggedIn ? '' : 'none';
       if (authSection) authSection.classList.toggle('is-logged', loggedIn);
