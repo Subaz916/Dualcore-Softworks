@@ -16,7 +16,7 @@
 .tl-hero p { color: var(--muted); margin: 16px auto 0; font-size: 15px; font-weight: 300; }
 .tl-hero time {
   color: var(--highlight);
-  border-bottom: 1px dashed rgba(20, 255, 236, .4);
+  border-bottom: 1px dashed rgba(255, 0, 0, .4);
 }
 
 /* Layout */
@@ -68,7 +68,7 @@
 }
 .tl-toc a:hover, .tl-toc a.active {
   color: #fff;
-  background: rgba(13, 115, 119, .1);
+  background: rgba(255, 0, 0, .1);
 }
 .tl-toc a:hover i, .tl-toc a.active i { color: var(--highlight); }
 .tl-toc .tl-toc-cta {
@@ -94,7 +94,7 @@
   scroll-margin-top: 110px;
   transition: border-color .4s, box-shadow .4s;
 }
-.tl-section:hover { border-color: rgba(13, 115, 119, .3); }
+.tl-section:hover { border-color: rgba(255, 0, 0, .3); }
 .tl-num {
   width: 52px; height: 52px;
   border-radius: 14px;
@@ -103,7 +103,7 @@
   font-family: var(--font-head);
   font-weight: 700;
   font-size: 17px;
-  background: linear-gradient(140deg, rgba(13, 115, 119, .16), rgba(13, 115, 119, .14));
+  background: linear-gradient(140deg, rgba(255, 0, 0, .16), rgba(255, 0, 0, .14));
   border: 1px solid var(--border-2);
   color: #d4d4d8;
 }

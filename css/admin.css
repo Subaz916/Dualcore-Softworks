@@ -65,7 +65,7 @@
   background: linear-gradient(160deg, rgba(24, 24, 29, .65), rgba(17, 17, 20, .5));
   transition: border-color .3s, transform .3s var(--ease);
 }
-.adm-item:hover { border-color: rgba(13, 115, 119, .35); transform: translateY(-2px); }
+.adm-item:hover { border-color: rgba(255, 0, 0, .35); transform: translateY(-2px); }
 .adm-item-main { min-width: 0; flex: 1; }
 .adm-item-top { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .adm-item-top b { font-family: var(--font-head); font-size: 15px; }

@@ -99,7 +99,7 @@
 .auth-alt a {
   color: var(--highlight);
   cursor: pointer;
-  border-bottom: 1px dashed rgba(20, 255, 236, .4);
+  border-bottom: 1px dashed rgba(255, 0, 0, .4);
 }
 .auth-alt a:hover { text-decoration: none; }
 
@@ -153,8 +153,8 @@
 }
 .nav-actions .au-chip-link:hover,
 .w-topbar-right .au-chip-link:hover {
-  border-color: rgba(20, 255, 236, .45);
-  background: rgba(20, 255, 236, .08);
+  border-color: rgba(255, 0, 0, .45);
+  background: rgba(255, 0, 0, .08);
   transform: translateY(-2px);
 }
 .nav-actions .au-chip-link .au-ico,
@@ -264,7 +264,7 @@
   display: grid;
   place-items: center;
   font-size: 30px;
-  background: linear-gradient(140deg, rgba(13, 115, 119, .16), rgba(13, 115, 119, .14));
+  background: linear-gradient(140deg, rgba(255, 0, 0, .16), rgba(255, 0, 0, .14));
   border: 1px solid var(--border-2);
 }
 .dash-empty h3 { font-size: 1.4rem; margin-bottom: 8px; }
@@ -281,7 +281,7 @@
   padding: 26px 26px 22px;
   transition: transform .4s var(--ease), border-color .4s, box-shadow .4s;
 }
-.dash-card:hover { transform: translateY(-4px); border-color: rgba(13, 115, 119, .35); box-shadow: 0 24px 60px -28px rgba(0, 0, 0, .8); }
+.dash-card:hover { transform: translateY(-4px); border-color: rgba(255, 0, 0, .35); box-shadow: 0 24px 60px -28px rgba(0, 0, 0, .8); }
 .dash-card-top { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
 .dash-card-title b { font-family: var(--font-head); font-size: 1.1rem; display: block; }
 .dash-card-title span { color: var(--muted); font-size: 12.5px; font-weight: 300; }

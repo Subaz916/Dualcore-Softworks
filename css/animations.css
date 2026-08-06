@@ -161,7 +161,7 @@ html.js-ready .hero-title .word[data-reveal="rise"].in-view {
   position: fixed;
   width: 14px; height: 14px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(13, 115, 119, .7), transparent 70%);
+  background: radial-gradient(circle, rgba(255, 0, 0, .7), transparent 70%);
   filter: blur(3px);
   pointer-events: none;
   z-index: 9999;
@@ -183,7 +183,7 @@ html.js-ready .hero-title .word[data-reveal="rise"].in-view {
 }
 @keyframes btn-glow-pulse {
   0%, 100% { box-shadow: 0 8px 30px -8px var(--glow); }
-  50% { box-shadow: 0 8px 44px -6px rgba(13, 115, 119, .5); }
+  50% { box-shadow: 0 8px 44px -6px rgba(255, 0, 0, .5); }
 }
 
 /* ---------- Gradient border shimmer (popular plan) ---------- */
