@@ -52,59 +52,41 @@ body.has-chatbot .back-to-top { bottom: 112px; }
 }
 .chat-panel.open { opacity: 1; transform: none; pointer-events: auto; }
 
-/* ---------- Page border glow while the assistant is active ---------- */
-/* ---------- Page border glow while the assistant is active ---------- */
-@property --glcm-angle {
-  syntax: '<angle>';
-  initial-value: 0deg;
-  inherits: false;
-}
-
+/* ---------- Soft glow while the assistant is active ---------- */
 body.chat-open::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: 1050;
-  pointer-events: none;
-  padding: 4px;
-  background: conic-gradient(
-    from var(--glcm-angle) at 50% 50%,
-    #22C55E, #3B82F6 25%, #FACC15 50%, #FF2D00 75%, #22C55E 100%
-  );
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-          mask-composite: exclude;
-  animation: glcm-spin 6s linear infinite;
-}
-
-/* Rotating light dot that travels around the border for a circular "AI active" effect */
-body.chat-open .chat-fab::before {
   content: '';
   position: fixed;
   inset: 0;
   z-index: 1049;
   pointer-events: none;
-  width: 54px;
-  height: 54px;
+  background:
+    radial-gradient(600px 100% at 100% 20%, rgba(64, 255, 140, .14), transparent 70%),
+    radial-gradient(600px 100% at 100% 80%, rgba(59, 130, 246, .12), transparent 70%),
+    radial-gradient(700px 120% at 100% 50%, rgba(255, 0, 0, .10), transparent 70%);
+  transition: opacity .6s var(--ease);
+}
+
+/* Floating glow ball on the right side of the website */
+body.chat-open::before {
+  content: '';
+  position: fixed;
+  right: 26px;
+  top: 50%;
+  z-index: 1050;
+  pointer-events: none;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
-  background: radial-gradient(circle at 45% 45%, #fff, #40ff8c 25%, #3b82f6 60%, transparent 75%);
-  filter: blur(2px);
-  box-shadow: 0 0 26px 10px rgba(64, 255, 140, .65), 0 0 46px 18px rgba(59, 130, 246, .45);
-  offset-path: rect(6px 6px calc(100% - 6px) calc(100% - 6px) round 18px);
-  animation: glcm-dot 6s linear infinite;
+  background: radial-gradient(circle at 38% 38%, #fff, #40ff8c 28%, #3b82f6 62%, #FF2D00 85%, transparent 96%);
+  box-shadow: 0 0 30px 12px rgba(64, 255, 140, .65), 0 0 70px 30px rgba(59, 130, 246, .4), 0 0 120px 60px rgba(255, 0, 0, .25);
+  animation: glcm-ball 5s ease-in-out infinite;
 }
 
-@keyframes glcm-spin {
-  to { --glcm-angle: 360deg; }
-}
-
-@keyframes glcm-dot {
-  from { offset-distance: 0%; opacity: 1; }
-  25% { opacity: .92; }
-  50% { opacity: 1; }
-  75% { opacity: .92; }
-  to { offset-distance: 100%; opacity: 1; }
+@keyframes glcm-ball {
+  0%, 100% { transform: translateY(-240px) scale(1); opacity: .9; }
+  25% { opacity: 1; }
+  50% { transform: translateY(240px) scale(1.15); opacity: 1; }
+  75% { opacity: 1; }
 }
 
 .chat-head {
