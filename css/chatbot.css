@@ -138,6 +138,26 @@ body.has-chatbot .back-to-top { bottom: 112px; }
 
 /* ---------- Question bank ---------- */
 .chat-qa { display: flex; flex-direction: column; gap: 8px; margin-top: 6px; }
+
+.chat-qa-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 0 16px 14px;
+  padding: 11px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 0, 0, .35);
+  background: rgba(255, 0, 0, .08);
+  color: #fff;
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .3s;
+}
+.chat-qa-toggle:hover { background: rgba(255, 0, 0, .18); border-color: var(--primary); }
+.chat-qa-toggle i { color: var(--primary); }
 .chat-cat-head {
   width: 100%;
   display: flex;

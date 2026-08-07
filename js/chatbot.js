@@ -138,8 +138,9 @@
   const closeBtn = qs('#chatClose');
   const stream = qs('#chatStream');
   const qaList = qs('#chatQa');
+  const qaToggle = qs('#chatQaToggle');
 
-  if (!fab || !panel || !stream || !qaList) return;
+  if (!fab || !panel || !stream || !qaList || !qaToggle) return;
 
   document.body.classList.add('has-chatbot');
 
@@ -148,6 +149,12 @@
   function scrollBottom() {
     const body = qs('#chatBody');
     if (body) body.scrollTop = body.scrollHeight;
+  }
+
+  function setQuestions(visible) {
+    qaList.style.display = visible ? '' : 'none';
+    qaToggle.style.display = visible ? 'none' : 'flex';
+    if (visible) scrollBottom();
   }
 
   function addMsg(who, text) {
@@ -187,11 +194,15 @@
     panel.classList.toggle('open', open);
     fab.classList.toggle('open', open);
     fab.setAttribute('aria-expanded', String(open));
-    if (open) scrollBottom();
+    if (open) {
+      setQuestions(true);
+      scrollBottom();
+    }
   }
 
   if (closeBtn) closeBtn.addEventListener('click', () => toggle(false));
   fab.addEventListener('click', () => toggle());
+  qaToggle.addEventListener('click', () => setQuestions(true));
 
   function renderQA() {
     qaList.innerHTML = QA.map((group, gi) =>
@@ -230,7 +241,11 @@
         const g = QA[Number(b.dataset.cat)];
         if (!g) return;
         const item = g.items[Number(b.dataset.q)];
-        if (item) say(item.q, item.a);
+        if (item) {
+          say(item.q, item.a);
+          setQuestions(false);
+          scrollBottom();
+        }
       });
     });
   }
