@@ -277,12 +277,42 @@ body.chat-open::after {
 }
 
 @media (max-width: 600px) {
-  .chat-fab { right: 16px; bottom: 16px; width: 56px; height: 56px; }
+  .chat-fab { right: 16px; bottom: 16px; width: 58px; height: 58px; }
+  .chat-fab i { font-size: 26px; }
+
   .chat-panel {
-    right: 12px;
-    bottom: 84px;
-    width: calc(100vw - 24px);
-    height: calc(100vh - 112px);
+    right: 8px;
+    bottom: 8px;
+    left: 8px;
+    width: auto;
+    height: calc(100dvh - 84px);
+    max-height: none;
+    border-radius: 16px;
   }
-  body.has-chatbot .back-to-top { bottom: 92px; }
+
+  .chat-head { padding: 14px 16px; }
+  .chat-body { padding: 14px; gap: 10px; }
+
+  .chat-msg { font-size: 14px; padding: 11px 15px; max-width: 92%; }
+
+  .chat-cat-head { padding: 13px 14px; font-size: 13.5px; }
+  .chat-cat-body { gap: 8px; padding: 12px 2px 2px; }
+  .chat-q {
+    flex: 1 1 auto;
+    padding: 11px 15px;
+    font-size: 13px;
+    border-radius: 14px;
+  }
+
+  .chat-qa-toggle { margin: 0 12px 12px; padding: 13px 14px; font-size: 14px; }
+
+  /* Glow ring hugs the smaller screen on phones */
+  body::after { inset: 6px; border-radius: 14px; }
+  body.has-chatbot .back-to-top { bottom: 94px; }
+}
+
+@media (max-width: 360px) {
+  .chat-fab { width: 52px; height: 52px; bottom: 14px; right: 14px; }
+  .chat-panel { height: calc(100dvh - 76px); }
+  .chat-head-txt span { font-size: 11px; }
 }
