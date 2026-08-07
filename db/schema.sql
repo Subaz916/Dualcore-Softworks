@@ -144,3 +144,8 @@ create policy "Admin update projects"
   on public.projects for update
   using (exists (select 1 from public.admins a where a.id = auth.uid()))
   with check (exists (select 1 from public.admins a where a.id = auth.uid()));
+
+-- Admin: delete projects
+create policy "Admin delete projects"
+  on public.projects for delete
+  using (exists (select 1 from public.admins a where a.id = auth.uid()));

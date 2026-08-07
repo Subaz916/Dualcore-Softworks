@@ -171,6 +171,13 @@
 .adm-btn:hover { color: #fff; border-color: var(--primary); }
 .adm-btn.done { color: #34D399; border-color: rgba(52, 211, 153, .4); background: rgba(52, 211, 153, .08); }
 
+.adm-item-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.adm-btn-wa { color: #25D366; border-color: rgba(37, 211, 102, .4); background: rgba(37, 211, 102, .08); text-decoration: none; }
+.adm-btn-wa:hover { color: #fff; border-color: #25D366; background: rgba(37, 211, 102, .2); }
+.adm-btn-danger { color: #F87171; border-color: rgba(248, 113, 113, .4); background: rgba(248, 113, 113, .08); }
+.adm-btn-danger:hover { color: #fff; border-color: #F87171; background: rgba(248, 113, 113, .22); }
+.adm-btn-danger:disabled { opacity: .5; cursor: not-allowed; }
+
 .adm-empty { text-align: center; color: var(--muted); padding: 50px 0; font-weight: 300; }
 .adm-msg { color: var(--muted); padding: 40px 0; text-align: center; font-weight: 300; }
 

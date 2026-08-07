@@ -166,6 +166,27 @@
         sel.dataset.prev = sel.value;
       });
     });
+    Array.from(view.querySelectorAll('[data-delete-project]')).forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const id = btn.dataset.deleteProject;
+        const row = projectsCache.find((p) => p.id === id);
+        const label = (row && (row.name || row.project_type)) || 'this project';
+        if (!window.confirm('Delete "' + label + '" permanently?\nThis cannot be undone.')) return;
+        btn.disabled = true;
+        btn.textContent = 'Deleting…';
+        const { error } = await sb.from('projects').delete().eq('id', id);
+        btn.disabled = false;
+        btn.textContent = 'Delete';
+        if (error) {
+          statusEl.textContent = 'Could not delete project. ' + (error.message || '');
+          console.error('project delete failed:', error);
+          return;
+        }
+        projectsCache = projectsCache.filter((p) => p.id !== id);
+        statusEl.textContent = 'Project deleted ✓';
+        renderAll(sb, null);
+      });
+    });
     Array.from(view.querySelectorAll('[data-toggle-details]')).forEach((btn) => {
       btn.addEventListener('click', () => {
         const block = qs('#det-' + btn.dataset.toggleDetails);
@@ -206,9 +227,56 @@
         '</div>' +
         '<div class="adm-item-side">' +
           '<select class="adm-select" data-project="' + p.id + '" data-prev="' + esc(p.status || 'Received') + '">' + opts + '</select>' +
+          '<div class="adm-item-actions">' +
+            '<a class="adm-btn adm-btn-wa" href="' + esc(whatsappLink(p)) + '" target="_blank" rel="noopener" title="Send project details to WhatsApp">WhatsApp →</a>' +
+            '<button type="button" class="adm-btn adm-btn-danger" data-delete-project="' + p.id + '" title="Delete this project permanently">Delete</button>' +
+          '</div>' +
         '</div>' +
       '</div>'
     );
+  }
+
+  /* ---------- WhatsApp share ---------- */
+  function whatsappText(p) {
+    const d = p.data || {};
+    const L = [];
+    L.push('DUALCORE SOFTWORKS — PROJECT DETAILS');
+    L.push('━━━━━━━━━━━━━━━━━━━━━━');
+    const addRow = (label, value) => {
+      const v = String(value == null ? '' : value).trim();
+      if (v) L.push(label + ': ' + v);
+    };
+    addRow('👤 Name', p.name);
+    addRow('📧 Email', p.email);
+    addRow('🏢 Company', p.company);
+    addRow('📞 Phone / WhatsApp', p.phone);
+    addRow('🌍 Country', p.country);
+    addRow('🌐 Website', p.website);
+    addRow('🛠 Type', p.project_type);
+    addRow('💰 Budget', p.budget);
+    addRow('⏱ Timeline', p.timeline);
+    addRow('📬 Contact Method', p.contact_method);
+    addRow('🔖 Status', p.status || 'Received');
+    addRow('📅 Submitted', fmtDate(p.created_at));
+    const brief = (d.about || (d.business && d.business.what) || '');
+    if (brief) {
+      L.push('');
+      L.push('📝 PROJECT BRIEF');
+      L.push(brief);
+    }
+    const details = fmtData(d);
+    if (details) {
+      L.push('');
+      L.push('📋 FULL DETAILS');
+      L.push(details);
+    }
+    L.push('');
+    L.push('Sent from Dualcore Softworks Admin Panel');
+    return L.join('\n');
+  }
+
+  function whatsappLink(p) {
+    return 'https://wa.me/?text=' + encodeURIComponent(whatsappText(p));
   }
 
   /* ---------- Helpers ---------- */
