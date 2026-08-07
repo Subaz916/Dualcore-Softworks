@@ -98,31 +98,8 @@ body.chat-open::after {
 }
 
 /* Floating glow ball on the right side of the website */
-body.chat-open .chat-fab::before {
-  content: '';
-  position: fixed;
-  right: 26px;
-  top: 50%;
-  z-index: 1050;
-  pointer-events: none;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 38% 38%, #fff, #40ff8c 30%, #3b82f6 65%, transparent 92%);
-  box-shadow:
-    0 0 24px 10px rgba(64, 255, 140, .55),
-    0 0 70px 26px rgba(59, 130, 246, .38),
-    0 0 130px 60px rgba(255, 45, 0, .22);
-  animation: glcm-ball 5s ease-in-out infinite;
-}
-
 @keyframes glcm-spin {
   to { --glcm-angle: 360deg; }
-}
-
-@keyframes glcm-ball {
-  0%, 100% { transform: translateY(-220px) scale(1); opacity: .95; }
-  50% { transform: translateY(220px) scale(1.1); opacity: 1; }
 }
 
 .chat-head {
