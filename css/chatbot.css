@@ -78,10 +78,10 @@ body::before {
 body::after {
   content: '';
   position: fixed;
-  inset: 8px;
+  inset: 0;
   z-index: 1047;
   pointer-events: none;
-  border-radius: 22px;
+  border-radius: 0;
   padding: 3px;
   background: conic-gradient(
     from var(--glcm-angle) at 50% 50%,
@@ -305,8 +305,8 @@ body.chat-open::after {
 
   .chat-qa-toggle { margin: 0 12px 12px; padding: 13px 14px; font-size: 14px; }
 
-  /* Glow ring hugs the smaller screen on phones */
-  body::after { inset: 6px; border-radius: 14px; }
+  /* Glow ring hugs the screen edge on phones */
+  body::after { inset: 0; border-radius: 0; }
   body.has-chatbot .back-to-top { bottom: 94px; }
 }
 
