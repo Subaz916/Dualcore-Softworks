@@ -33,8 +33,8 @@ body.has-chatbot .back-to-top { bottom: 112px; }
   right: 24px;
   bottom: 100px;
   z-index: 1190;
-  width: min(380px, calc(100vw - 32px));
-  height: min(590px, calc(100vh - 140px));
+  width: min(320px, calc(100vw - 32px));
+  height: min(430px, calc(100vh - 140px));
   display: flex;
   flex-direction: column;
   border-radius: 20px;
@@ -281,13 +281,12 @@ body.chat-open::after {
   .chat-fab i { font-size: 26px; }
 
   .chat-panel {
-    right: 8px;
-    bottom: 8px;
-    left: 8px;
-    width: auto;
-    height: calc(100dvh - 84px);
+    right: 12px;
+    bottom: 82px;
+    width: min(320px, calc(100vw - 24px));
+    height: min(420px, calc(100dvh - 108px));
     max-height: none;
-    border-radius: 16px;
+    border-radius: 14px;
   }
 
   .chat-head { padding: 14px 16px; }
@@ -313,6 +312,6 @@ body.chat-open::after {
 
 @media (max-width: 360px) {
   .chat-fab { width: 52px; height: 52px; bottom: 14px; right: 14px; }
-  .chat-panel { height: calc(100dvh - 76px); }
+  .chat-panel { height: min(400px, calc(100dvh - 96px)); }
   .chat-head-txt span { font-size: 11px; }
 }
