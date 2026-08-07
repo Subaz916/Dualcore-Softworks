@@ -25,7 +25,6 @@ body.has-chatbot .back-to-top { bottom: 112px; }
   transition: transform .35s var(--ease), box-shadow .35s var(--ease);
 }
 .chat-fab:hover { transform: translateY(-4px) scale(1.05); box-shadow: 0 20px 48px -14px var(--glow, rgba(255, 0, 0, .6)); }
-.chat-fab svg { width: 30px; height: 30px; }
 .chat-fab i { font-size: 28px; display: grid; }
 
 /* ---------- Panel ---------- */
@@ -59,48 +58,42 @@ body.has-chatbot .back-to-top { bottom: 112px; }
   inherits: false;
 }
 
-/* Outer blurred glow wash */
-body.chat-open > * {
-  position: relative;
-}
-body.chat-open::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: 1048;
-  pointer-events: none;
-  padding: 10px;
-  background: conic-gradient(
-    from var(--glcm-angle) at 50% 50%,
-    rgba(34, 197, 94, .5), rgba(59, 130, 246, .5) 25%, rgba(250, 204, 21, .5) 50%, rgba(255, 45, 0, .5) 75%, rgba(34, 197, 94, .5) 100%
-  );
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-          mask-composite: exclude;
-  filter: blur(14px);
-  opacity: .85;
-  animation: glcm-spin 7s linear infinite;
-}
-
-/* Soft glowing ring (no hard lines) */
+/* Ambient glow wash around the page (soft, reliable box-shadow — no full-screen blur, no gray screen) */
 body.chat-open::before {
   content: '';
   position: fixed;
   inset: 0;
-  z-index: 1049;
+  z-index: 1046;
   pointer-events: none;
+  box-shadow:
+    inset 0 0 160px 40px rgba(59, 130, 246, .10),
+    inset 0 0 120px 20px rgba(34, 197, 94, .08),
+    inset 0 0 240px 70px rgba(255, 45, 0, .07);
+  transition: opacity .6s var(--ease);
+}
+
+/* Slender rotating light ring (glow, not heavy lines) */
+body.chat-open::after {
+  content: '';
+  position: fixed;
+  inset: 8px;
+  z-index: 1047;
+  pointer-events: none;
+  border-radius: 22px;
   padding: 2px;
   background: conic-gradient(
     from var(--glcm-angle) at 50% 50%,
-    #22C55E, #3B82F6 25%, #FACC15 50%, #FF2D00 75%, #22C55E 100%
+    rgba(34, 197, 94, .65),
+    rgba(59, 130, 246, .65) 25%,
+    rgba(250, 204, 21, .65) 50%,
+    rgba(255, 45, 0, .65) 75%,
+    rgba(34, 197, 94, .65) 100%
   );
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
           mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
           mask-composite: exclude;
-  filter: blur(3px);
-  opacity: .75;
+  opacity: .6;
   animation: glcm-spin 7s linear infinite;
 }
 
@@ -112,11 +105,14 @@ body.chat-open .chat-fab::before {
   top: 50%;
   z-index: 1050;
   pointer-events: none;
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
-  background: radial-gradient(circle at 38% 38%, #fff, #40ff8c 28%, #3b82f6 62%, transparent 92%);
-  box-shadow: 0 0 26px 10px rgba(64, 255, 140, .55), 0 0 60px 26px rgba(59, 130, 246, .35);
+  background: radial-gradient(circle at 38% 38%, #fff, #40ff8c 30%, #3b82f6 65%, transparent 92%);
+  box-shadow:
+    0 0 24px 10px rgba(64, 255, 140, .55),
+    0 0 70px 26px rgba(59, 130, 246, .38),
+    0 0 130px 60px rgba(255, 45, 0, .22);
   animation: glcm-ball 5s ease-in-out infinite;
 }
 
@@ -125,8 +121,8 @@ body.chat-open .chat-fab::before {
 }
 
 @keyframes glcm-ball {
-  0%, 100% { transform: translateY(-220px) scale(1); opacity: .9; }
-  50% { transform: translateY(220px) scale(1.15); opacity: 1; }
+  0%, 100% { transform: translateY(-220px) scale(1); opacity: .95; }
+  50% { transform: translateY(220px) scale(1.1); opacity: 1; }
 }
 
 .chat-head {
