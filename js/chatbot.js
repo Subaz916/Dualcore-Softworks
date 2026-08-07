@@ -193,6 +193,7 @@
     open = typeof force === 'boolean' ? force : !open;
     panel.classList.toggle('open', open);
     fab.classList.toggle('open', open);
+    document.body.classList.toggle('chat-open', open);
     fab.setAttribute('aria-expanded', String(open));
     if (open) {
       setQuestions(true);

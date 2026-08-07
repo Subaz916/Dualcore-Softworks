@@ -50,11 +50,24 @@ body.has-chatbot .back-to-top { bottom: 112px; }
   pointer-events: none;
   transition: all .35s var(--ease);
 }
-.chat-panel.open { opacity: 1; transform: none; pointer-events: auto; animation: chat-glow 2.6s ease-in-out infinite; }
+.chat-panel.open { opacity: 1; transform: none; pointer-events: auto; }
 
-@keyframes chat-glow {
-  0%, 100% { border-color: rgba(255, 0, 0, .55); box-shadow: 0 0 0 1px rgba(255, 0, 0, .35), 0 0 24px -4px rgba(255, 0, 0, .55), 0 30px 80px -20px rgba(0, 0, 0, .75); }
-  50% { border-color: rgba(255, 0, 0, .9); box-shadow: 0 0 0 2px rgba(255, 0, 0, .45), 0 0 38px -2px rgba(255, 0, 0, .8), 0 30px 80px -20px rgba(0, 0, 0, .75); }
+/* ---------- Page border glow while the assistant is active ---------- */
+body.chat-open::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 1050;
+  pointer-events: none;
+  border: 2px solid rgba(255, 0, 0, .45);
+  box-shadow: inset 0 0 90px -30px rgba(255, 0, 0, .55);
+  animation: chat-page-glow 2.6s ease-in-out infinite;
+  transition: opacity .6s var(--ease);
+}
+
+@keyframes chat-page-glow {
+  0%, 100% { border-color: rgba(255, 0, 0, .35); box-shadow: inset 0 0 60px -30px rgba(255, 0, 0, .35); }
+  50% { border-color: rgba(255, 0, 0, .65); box-shadow: inset 0 0 110px -20px rgba(255, 0, 0, .6); }
 }
 
 .chat-head {
