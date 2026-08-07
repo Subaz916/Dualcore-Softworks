@@ -38,7 +38,28 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--nav-h) + 10px);
+  text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+}
+
+/* Skip heavy rendering for sections far below the fold (browsers that support it) */
+@media screen {
+  .about, .services-section, .work-section, .why-section, .stack-section,
+  .process-section, .stats-section, .testi-section, .showcase-section,
+  .pricing-section, .industries-section, .team-section, .awards-section,
+  .faq-section, .contact-section, .cta-section {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 900px;
+  }
+  .clients, .footer { contain: layout paint; }
+}
+
+/* Animate only transform/opacity — never layout/filter — on interactive elements */
+.reveal, .section-reveal, .work-card, .dash-card, .chat-msg {
+  will-change: transform, opacity;
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .magnetic, [data-tilt], [data-parallax] { will-change: transform; }
 }
 
 body {

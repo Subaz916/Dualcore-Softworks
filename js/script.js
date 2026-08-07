@@ -14,6 +14,22 @@
   const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
   const lerp = (a, b, t) => a + (b - a) * t;
 
+  // Run a function at most once per animation frame (cheap scroll/mouse work).
+  function rafThrottle(fn) {
+    let running = false;
+    return function () {
+      if (running) return;
+      running = true;
+      requestAnimationFrame(() => {
+        running = false;
+        fn.apply(null, arguments);
+      });
+    };
+  }
+
+  // Prefer running heavy scroll work in rAF so the browser can coalesce frames.
+  const SCROLL_OPTS = { passive: true, capture: false };
+
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ================= PRELOADER ================= */
@@ -64,7 +80,7 @@
     const p = max > 0 ? h.scrollTop / max : 0;
     if (progressBar) progressBar.style.width = (p * 100) + '%';
   }
-  window.addEventListener('scroll', updateProgress, { passive: true });
+  window.addEventListener('scroll', rafThrottle(updateProgress), SCROLL_OPTS);
 
   /* ================= NAV ================= */
   const nav = qs('#siteNav');
@@ -74,15 +90,15 @@
     if (backToTop) backToTop.classList.toggle('visible', scrollY > 700);
     setActiveNav();
   }
-  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('scroll', rafThrottle(onScroll), SCROLL_OPTS);
 
   /* ================= ACTIVE NAV ================= */
-  const sections = qsa('main, section[id]');
+  const secList = qsa('main, section[id]');
   const navLinks = qsa('.nav-link');
   function setActiveNav() {
     const pos = scrollY + 140;
     let current = '';
-    qsa('section[id]').forEach((s) => {
+    secList.forEach((s) => {
       if (pos >= s.offsetTop && pos < s.offsetTop + s.offsetHeight) current = s.id;
     });
     navLinks.forEach((l) => {
@@ -200,8 +216,8 @@
       const p = clamp((vh - r.top) / (r.height + vh * 0.3), 0, 1);
       tlProgress.style.height = (p * 100) + '%';
     };
-    window.addEventListener('scroll', upd, { passive: true });
-    window.addEventListener('resize', upd);
+    window.addEventListener('scroll', rafThrottle(upd), SCROLL_OPTS);
+    window.addEventListener('resize', rafThrottle(upd));
     upd();
   }
 
@@ -216,7 +232,7 @@
       const p = clamp((vh - r.top) / (r.height + vh * 0.35), 0, 1);
       rmFill.style.height = (p * 100) + '%';
     };
-    window.addEventListener('scroll', upd, { passive: true });
+    window.addEventListener('scroll', rafThrottle(upd), SCROLL_OPTS);
     upd();
   }
 
@@ -234,7 +250,7 @@
       const doneN = Math.round(p * ptSteps.length);
       ptSteps.forEach((s, i) => s.classList.toggle('done', i < doneN));
     };
-    window.addEventListener('scroll', upd, { passive: true });
+    window.addEventListener('scroll', rafThrottle(upd), SCROLL_OPTS);
     upd();
   }
 
@@ -528,14 +544,14 @@
 
   /* ================= MOUSE PARALLAX ================= */
   if (window.matchMedia('(hover: hover)').matches) {
-    document.addEventListener('mousemove', (e) => {
+    document.addEventListener('mousemove', rafThrottle((e) => {
       const px = e.clientX / innerWidth - 0.5;
       const py = e.clientY / innerHeight - 0.5;
       qsa('[data-parallax]').forEach((el) => {
         const depth = parseFloat(el.dataset.parallax) || 10;
         el.style.translate = (px * depth * 1.3) + 'px ' + (py * depth * 1.3) + 'px';
       });
-    });
+    }));
   }
 
   /* ================= HERO TILT ================= */
