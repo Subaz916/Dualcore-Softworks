@@ -26,6 +26,7 @@ body.has-chatbot .back-to-top { bottom: 112px; }
 }
 .chat-fab:hover { transform: translateY(-4px) scale(1.05); box-shadow: 0 20px 48px -14px var(--glow, rgba(255, 0, 0, .6)); }
 .chat-fab svg { width: 30px; height: 30px; }
+.chat-fab i { font-size: 28px; display: grid; }
 
 /* ---------- Panel ---------- */
 .chat-panel {
@@ -67,6 +68,7 @@ body.has-chatbot .back-to-top { bottom: 112px; }
   background: var(--grad-b, linear-gradient(135deg, #FF0000, #AF0404));
   color: #fff;
 }
+.chat-head .chat-avatar i { font-size: 20px; }
 .chat-head-txt { flex: 1; min-width: 0; }
 .chat-head-txt b { font-family: var(--font-head); font-size: 14.5px; display: block; }
 .chat-head-txt span { font-size: 11.5px; color: var(--muted); font-weight: 300; }
