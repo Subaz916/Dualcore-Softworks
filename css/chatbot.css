@@ -58,7 +58,7 @@ body.has-chatbot .back-to-top { bottom: 112px; }
   inherits: false;
 }
 
-/* Ambient glow wash around the page (soft, reliable box-shadow — no full-screen blur, no gray screen) */
+/* Ambient glow wash around the page (soft, reliable box-shadow) */
 body.chat-open::before {
   content: '';
   position: fixed;
@@ -66,13 +66,14 @@ body.chat-open::before {
   z-index: 1046;
   pointer-events: none;
   box-shadow:
-    inset 0 0 160px 40px rgba(59, 130, 246, .10),
-    inset 0 0 120px 20px rgba(34, 197, 94, .08),
-    inset 0 0 240px 70px rgba(255, 45, 0, .07);
+    inset 0 0 140px 30px rgba(59, 130, 246, .28),
+    inset 0 0 100px 10px rgba(34, 197, 94, .22),
+    inset 0 0 200px 60px rgba(255, 45, 0, .20),
+    inset 0 0 300px 100px rgba(250, 204, 21, .10);
   transition: opacity .6s var(--ease);
 }
 
-/* Slender rotating light ring (glow, not heavy lines) */
+/* Bold rotating light ring (full color, strong glow) */
 body.chat-open::after {
   content: '';
   position: fixed;
@@ -80,20 +81,20 @@ body.chat-open::after {
   z-index: 1047;
   pointer-events: none;
   border-radius: 22px;
-  padding: 2px;
+  padding: 3px;
   background: conic-gradient(
     from var(--glcm-angle) at 50% 50%,
-    rgba(34, 197, 94, .65),
-    rgba(59, 130, 246, .65) 25%,
-    rgba(250, 204, 21, .65) 50%,
-    rgba(255, 45, 0, .65) 75%,
-    rgba(34, 197, 94, .65) 100%
+    #22C55E,
+    #3B82F6 25%,
+    #FACC15 50%,
+    #FF2D00 75%,
+    #22C55E 100%
   );
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
           mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
           mask-composite: exclude;
-  opacity: .6;
+  opacity: 1;
   animation: glcm-spin 7s linear infinite;
 }
 
